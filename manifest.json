@@ -1,0 +1,26 @@
+{
+   "action": {
+      "default_icon": "icons/icon.png",
+      "default_title": "Hangquangchau24h.vn"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "js/jquery.js", "js/content.js" ],
+      "matches": [ "http://*.1688.com/*", "https://*.1688.com/*", "https://*.1688.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "http://*.vip.com/*", "https://*.vip.com/*", "http://*.vipshop.com/*", "https://*.vipshop.com/*", "http://*.tmall.hk/*", "https://*.tmall.hk/*", "http://*.yao.95095.com/*", "https://*.yao.95095.com/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "Extension Đặt Hàng Quảng Châu 24h",
+   "host_permissions": [ "https://*.hangquangchau24h.vn/*", "http://localhost/*", "*://*.google.com/*", "http://*.1688.com/*", "https://*.1688.com/*", "https://*.1688.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "http://*.tmall.hk/*", "https://*.tmall.hk/*", "http://*.vip.com/*", "https://*.vip.com/*", "http://*.vipshop.com/*", "https://*.vipshop.com/*" ],
+   "icons": {
+      "512": "icons/icon.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyxH/SkMrIHX3FfWRm8qck8dbgV/VBdv0sQ+UoyhUL7gg+emVCP7V85pCxii8ec+80z6YsIJ2n6E2jhhDywWpGP+YcweO2i1YJvW3qMlmGRSbxTdNgVZqPJvwj3u4/7PE/QBPENsrBPNWSS+lfyLNItRebNGND1uIJUqxu+tA1698eRel0YjMmo+4Gzg37XD0Ap+TnD8JAfCTLCgFv9UsKYAA21X7IiU1wgTmrrsrIbTH11/QLWDxvtSKV1M3mRzL+4x+2QoI6St+lfErDneeOOR0MBukPWio1SdE10XpvKrmmGazjaqhk+r7ga807N59Jui7obIN1bQcphHkkLYejQIDAQAB",
+   "manifest_version": 3,
+   "name": "Extension Đặt Hàng Quảng Châu 24h",
+   "short_name": "Hangquangchau24h",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.1.11"
+}

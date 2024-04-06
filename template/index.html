@@ -1,0 +1,566 @@
+﻿<div class="addon-wrapper _addon-wrapper">
+
+    <a href="javascript:void(0)" id="hideAddon" class=""hideAddon style="float: right">&nbsp;&nbsp;&nbsp;</a>
+    <div class="addon-alert _alert-shop-credible ">
+                  <span> </span>
+            <span class="close-warning-ao _close-warning-ao"></span>
+        </p>
+    </div>
+
+    <div class="addon-content" id="vna-ddon-content" style="display:inline-block">
+        <div class="addon-block">
+            <ul class="addon-list-inline">
+
+                <li class="cf pdtop-0" style="border-right: 0px;">
+                    <!-- <a id="_add-to-favorite" href="javascript:void(0)" class="save-product-ao"> Lưu sản phẩm </a>-->
+
+                    <select id="soflow-color" class="soflow-color mrtop-15">
+                        <!-- This method is nice because it doesn't require extra div tags, but it also doesn't retain the style across all browsers. -->
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="en">Tiếng Anh</option>
+                    </select>
+                    <input class="mrtop-15" type="text" value="" id="vndich" name="vndich" placeholder="Tìm Kiếm"/>
+                    <button class="mrtop-15" type="button" id="vnshoptimkiem">Tìm Kiếm</button>
+                </li>
+
+
+                <li class="cf pdtop-0" style="padding-left: 0px">
+                    <label style="display: none">
+                        <input type="checkbox" name="is_translate" class="_is_translate" checked="checked"> <span></span>
+                        Dịch tự động
+                    </label>
+                    <select id="orderby" class="soflow-color mrtop-15" style="margin-right: 5px;display:none">
+                        <!-- This method is nice because it doesn't require extra div tags, but it also doesn't retain the style across all browsers. -->
+                        <option value="1">Bán chạy</option>
+                        <option value="0">Mặc Định</option>
+
+                    </select>
+                    <select id="diadiem-taobao" class="soflow-color mrtop-15" style="width: 120px;display: none">
+                        <!-- This method is nice because it doesn't require extra div tags, but it also doesn't retain the style across all browsers. -->
+                        <option value='0'>Chọn địa điểm</option>
+                        <option value='广州'>Quảng Châu</option>
+                        <option value='广东'>Quảng Đông</option>
+						<option value='湖南'>Hồ Nam</option>
+						 <option value='贵州'>Quý Châu</option>
+						<option value='广西'>Quảng Tây</option>
+						<option value='江浙沪'>Giang Tô , Chiết Giang</option>
+                        <option value='北京'>Bắc Kinh</option>
+                        <option value='上海'>Thượng Hải</option>
+                        <option value='天津'>Thiên Tân</option>
+                        <option value='重庆'>Trùng Khánh</option>
+                        <option value='浙江'>Chiết Giang</option>
+                        <option value='江苏'>tỉnh Giang Tô</option>
+                        <option value='山东'>Sơn Đông</option>
+                        <option value='河北'>Hà Bắc</option>
+                        <option value='河南'>Hà Nam</option>
+                        <option value='福建'>tỉnh Phúc Kiến</option>
+                        <option value='辽宁'>tỉnh Liêu Ninh</option>
+                        <option value='安徽'>An Huy</option>
+                        <option value='山西'>Sơn Tây</option>
+                        <option value='海南'>Hải Nam</option>
+                        <option value='内蒙古'>nội Mông</option>
+                        <option value='吉林'>Cát Lâm</option>
+                        <option value='黑龙江'>Hắc Long Giang</option>
+                        <option value='湖北'>Hồ Bắc</option>
+                        
+                        <option value='江西'>tỉnh Giang Tây</option>
+                        <option value='宁夏'>Ninh Hạ</option>
+                        <option value='新疆'>Tân Cương</option>
+                        <option value='青海'>Thanh Hải</option>
+                        <option value='陕西'>tỉnh Sơn Tây</option>
+                        <option value='甘肃'>tỉnh Cam Túc</option>
+                        <option value='四川'>tỉnh Tứ Xuyên</option>
+                        <option value='云南'>Vân Nam</option>
+                       
+                        <option value='西藏'>Tây Tạng</option>
+                        <option value='香港'>Hồng Kông</option>
+                        <option value='澳门'>Macao</option>
+                        <option value='台湾'>Đài Loan</option>
+                    </select>
+                    <select id="diadiem-1688" class="soflow-color mrtop-15" style="width: 120px;display: none">
+                        <!-- This method is nice because it doesn't require extra div tags, but it also doesn't retain the style across all browsers. -->
+                       <option value='0'>Chọn địa điểm</option>
+                        <option value='广东'>Quảng Đông</option>
+						<option value='湖南'>Hồ Nam</option>
+						 <option value='贵州'>Quý Châu</option>
+                        
+						<option value='广西'>Quảng Tây</option>
+						<option value='江浙沪'>Giang Tô , Chiết Giang</option>
+                        <option value='北京'>Bắc Kinh</option>
+                        <option value='上海'>Thượng Hải</option>
+                        <option value='天津'>Thiên Tân</option>
+                        <option value='重庆'>Trùng Khánh</option>
+                        <option value='浙江'>Chiết Giang</option>
+                        <option value='江苏'>tỉnh Giang Tô</option>
+                        <option value='山东'>Sơn Đông</option>
+                        <option value='河北'>Hà Bắc</option>
+                        <option value='河南'>Hà Nam</option>
+                        <option value='福建'>tỉnh Phúc Kiến</option>
+                        <option value='辽宁'>tỉnh Liêu Ninh</option>
+                        <option value='安徽'>An Huy</option>
+                        <option value='山西'>Sơn Tây</option>
+                        <option value='海南'>Hải Nam</option>
+                        <option value='内蒙古'>nội Mông</option>
+                        <option value='吉林'>Cát Lâm</option>
+                        <option value='黑龙江'>Hắc Long Giang</option>
+                        <option value='湖北'>Hồ Bắc</option>
+                        
+                        <option value='江西'>tỉnh Giang Tây</option>
+                        <option value='宁夏'>Ninh Hạ</option>
+                        <option value='新疆'>Tân Cương</option>
+                        <option value='青海'>Thanh Hải</option>
+                        <option value='陕西'>tỉnh Sơn Tây</option>
+                        <option value='甘肃'>tỉnh Cam Túc</option>
+                        <option value='四川'>tỉnh Tứ Xuyên</option>
+                        <option value='云南'>Vân Nam</option>
+                       
+                        <option value='西藏'>Tây Tạng</option>
+                        <option value='香港'>Hồng Kông</option>
+                        <option value='澳门'>Macao</option>
+                        <option value='台湾'>Đài Loan</option>
+                    </select>
+					<select id="xuong-taobao" class="soflow-color mrtop-15" style="width: 116px;display: none">
+                        <!-- This method is nice because it doesn't require extra div tags, but it also doesn't retain the style across all browsers. -->
+                        <option value="0">Tìm Sản Phẩm</option>
+                        <option value="1">Tìm Xưởng</option>
+                    </select>
+                    <select id="xuong-1688" class="soflow-color mrtop-15" style="width: 116px;display: none">
+                        <!-- This method is nice because it doesn't require extra div tags, but it also doesn't retain the style across all browsers. -->
+                        <option value="0">Tìm Sản Phẩm </option>
+                        <option value="1">Tìm Xưởng</option>
+                    </select>
+					
+                </li>
+                <li class="" style="display: none">
+                    <!-- <a id="_add-to-favorite" href="javascript:void(0)" class="save-product-ao"> Lưu sản phẩm </a>-->
+                    <a  href="javascript:void(0)" class="save-product-ao" style="color:white;display:none">Hotline : 01682003755 </a>
+                </li>
+                <li>
+                    <ul>
+                        <li class="pos-relative" style="    padding-top: 15px; ">
+						
+                            <a style="color: #ffffff"  href="http://donhang.orderhangquangchau.com/don-hang.html" target="_blank" class="save-product-ao">Quản lý đơn hàng </a><br />	
+							 <a style="color: #ffffff"  href="http://donhang.orderhangquangchau.com/dang-nhap.html" target="_blank" class="save-product-ao">Đăng nhập </a>
+                            <div class="opt-select-ao">
+                                <span class="arr-ao"></span>
+
+                                <select class="form-control _select_category" style="display: none">
+                                    <option value="1" selected="selected">Chọn danh mục</option>
+                                </select>
+                            </div>
+
+                            <div class="category-other _category-other hidden">
+                                <div class="addon_arrow_box">
+                                    <label class="addon-category-label">Danh mục khác: </label>
+                                    <input type="text" class="form-control _input_category addon-input-category" placeholder="Tự nhập danh mục">
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+
+                    <a href="javascript:void(0)" class="btn btn-danger _addToCart btn-seudo">
+                        <i class="pull-left icon-ht"></i> ĐẶT HÀNG VÀO GIỎ
+                    </a>
+
+                    <a href="javascript:void(0)" class="btn btn-primary _addToCart btn-orderhang hidden">
+                        ĐẶT HÀNG  <i class="addon-icon-orderhang"></i>
+                    </a>
+
+                    <a href="javascript:void(0)" id="btnvnshop" class="addon-link _gioHang">
+                        <i class="addon-icon-shopping-cart"></i>
+
+                        Vào giỏ hàng
+                    </a>
+                    </a>
+					
+                  &nbsp;&nbsp;&nbsp;
+
+                    <a href="javascript:" class="_close_tool open-more hidden">
+                        Mở rộng
+                    </a>
+
+                </li>
+
+                <li class="hidden">
+                    <h3 class="addon-title">CÔNG CỤ ĐẶT HÀNG</h3>
+                    <p class="addon-version _addon-version">---</p>
+                </li>
+
+                <li class="hidden">
+                    <h6 class="addon-exchange-label">Tỉ giá</h6>
+                    <p class="addon-exchange-text _addon-exchange-text">---</p>
+                </li>
+            </ul>
+
+
+
+        </div>
+    </div>
+
+</div>
+<div>
+    <style>
+        .vncart-lst{
+            list-style-type:none;
+            width:849px;
+        }
+        .vncart-box{
+            background-color: #fcfcfc;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        .vncart-head{
+            min-height: 33px;
+            line-height: 32px;
+            background-color: #eee;
+        }
+        .vncart-content{
+            width: 810px;
+            margin-right: 15px!important;
+            margin-left: 15px!important;
+            margin-bottom: 15px!important;
+            margin-top: 15px!important;
+        }
+        .vncart-fl{
+            float:left;
+        }
+        .vncart-div-img{
+            width: 144px;
+            height: 144px;
+            margin-right: 20px;
+            padding:7px;
+        }
+        .vncart-img{
+            width: 144px;
+            height: 144px;
+            border: 1px solid #ddd;
+            background: #fff;
+            overflow:hidden;
+        }
+        .img-cart{
+            height: 144px;
+        }
+        .vncart-conten{
+            padding:7px;
+            width:611px;
+        }
+        .title-vncart{
+            line-height: 22px;
+            font-family: "Helvetica neue",Helvetica,Arial,Sans-serif;
+        }
+        .title-vncart a{
+            color: #0654ba;
+            text-decoration: none;
+
+        }
+        .price-vncart{
+            font-weight: bold;
+            margin-top:5px;
+        }
+        .tqtyTextBox {
+            width: 40px;
+            height: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.8),inset 0 1px 2px rgba(0,0,0,0.06);
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            margin: 0;
+            font-size: .857em;
+            padding: .2em;
+            text-align: left;
+        }
+        .tmrg-left{
+            margin-left:10px;
+            margin-right:5px;
+            font-weight: normal;
+
+        }
+        .text-a{
+            text-decoration:none;
+        }
+        .vncart-remove{
+            color: #1958bd;
+            cursor: pointer;
+            margin-top:7px;
+            text-align:right;
+            float: right;
+            width: 68px;
+        }
+        #vncard-dialoge {
+            visibility: hidden;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            width:100%;
+            height:100%;
+            text-align:center;
+            z-index: 9999999999;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .vnshop-box-dialoge {
+            width:851px;
+            margin: 100px auto;
+            background-color: #fff;
+            border:1px solid #000;
+            padding:15px;
+            text-align:center;
+            position: relative;
+            height: 500px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        .close {
+            background: #606061;
+            color: #FFFFFF;
+            line-height: 25px;
+            position: absolute;
+            /* right: -12px;*/
+            text-align: center;
+            /* top: -10px;*/
+            right:2px;
+            top:2px;
+            width: 24px;
+            text-decoration: none;
+            font-weight: bold;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 1px 1px 3px #000;
+            -webkit-box-shadow: 1px 1px 3px #000;
+            box-shadow: 1px 1px 3px #000;
+            z-index: 99999999;
+        }
+
+        .close:hover {
+            background: #00d9ff;
+        }
+        #containervns {
+            width: 840px;
+            margin: 25px auto;
+        }
+
+        .whysign {
+            float: left;
+            background-color: white;
+            width: 480px;
+            height: 347px;
+            border-radius: 0 5px 5px 0;
+            padding-top: 20px;
+            padding-right: 20px;
+        }
+
+        .signup {
+            float: left;
+            width: 300px;
+            padding: 30px 20px;
+            background-color: white;
+            text-align: center;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .vntext{
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            border: 0;
+            border-bottom: 1px solid rgba(0,0,0,.2);
+            height: 45px;
+            line-height: 45px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: rgba(0,0,0,.4);
+        }
+
+        .vnshubmit{
+            margin-top: 25px;
+            width: 80%;
+            border: 0;
+            background-color: #53CACE;
+            border-radius: 5px;
+            height: 50px;
+            color: white;
+            font-weight: 400;
+            font-size: 1em;
+        }
+
+        .vntext:focus {
+            outline: none;
+            border-color: #53CACE;
+        }
+
+        .whysign>h1 {
+            color: rgba(0,0,0,.7);
+            font-weight: 900;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .whysign p {
+            color: rgba(0,0,0,.6);
+            font-size: 1.2em;
+            line-height:22px;
+            text-align:left;
+        }
+
+       /* .whysign span {
+            font-size: .75em;
+            background-color: white;
+            padding: 2px 5px;
+            color: rgba(0,0,0,.6);
+            border-radius: 2px;
+            box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+            margin: 5px;
+        }
+
+        .whysign span:hover {
+            color: #53CACE;
+        }
+        */
+        .vnmrtopbt{
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+    </style>
+   <div id="vncard-dialoge">
+       <a href="javascript:void(0)" title="Close" id="vncart-close" class="close">X</a>
+      <div class="vnshop-box-dialoge">
+
+          <ul class="vncart-lst" id="ul-vncart-lst">
+             <!-- <li>
+                  <div class="vncart-box">
+                      <div class="vncart-head">
+                          <p>Header</p>
+                      </div>
+                      <div class="vncart-content">
+                          <div class="vncart-fl vncart-div-img">
+                              <div class="vncart-img" >
+                                  <a href=""><img class="img-cart" src="http://i.ebayimg.com/00/s/NDA3WDkwMA==/z/tVYAAOSwa-dWoV9I/$_1.JPG"/></a>
+                              </div>
+                          </div>
+                          <div class="vncart-conten vncart-fl">
+                              <p class="title-vncart"><a href="http://www.ebay.com/itm/181995949361">Shimano RS400 10/11-Speed 36h Rear Hub, Silver</a></p>
+                              <p class="price-vncart">
+                                  <span>Price:99999</span>
+                                  <span class="tmrg-left">SLL:</span><input type="text" class="tqtyTextBox"></input>
+                                  <span class="tmrg-left"><a class="text-a" href="javascript:">Cập nhật</a></span>
+                              </p>
+                              <p class="vncart-remove">Xóa</p>
+                          </div>
+                          <div style="clear:both"></div>
+                      </div>
+                  </div>
+              </li>-->
+
+          </ul>
+          <div>
+              <div id='containervns'>
+                  <div class='signup'>
+                      <form>
+                         <a href="http://donhang.orderhangquangchau.com/don-hang-da-gui.html" target="_blank"><input id="sendOrder_noues"  type='button' class="vnshubmit" placeholder='SUBMIT' value="Quản Lý Đơn Hàng" /></a>
+                          <input id="clearDataxanh"  type='button' class="vnshubmit" placeholder='SUBMIT' value="Xóa dữ liệu" />
+                      </form>
+                  </div>
+                  <div class='whysign'>
+                      <h1>Thông Tin Đơn Hàng</h1>
+                      <p><span>Số Lượng Sản Phẩm :       </span><span id="slsanpham"></span></p>
+                      <p><span> Số Lượng Xưởng    :       </span><span id="slsuong"></span></p>
+                      <p><span>Tiền Hàng   :       </span><span id="tienhang"></span></p>
+                      <p><span> Tiền Công  : </span><span id="phishipnoidia"></span></p>
+                      <p><span> Phí Ship nội địa   :       <span>Xem cách check :
+                          <a  href="http://orderhangquangchau.com/huong-dan-cach-kiem-tra-phi-ship-noi-dia-trung-quoc-tren-trang-taobaocom.html" target="_blank" >Tại đây </a></span>
+
+                      </p>
+
+                      <hr class="vnmrtopbt"/>
+                      <p><span>Tổng   :       </span><span id="tongtien"></span></p>
+                      <p>Xem cách tính phí:
+                          <span><a  href="http://orderhangquangchau.com/order-hang-taobao-gia-re/" target="_blank" >Tại đây </a></span></span>
+
+                      </p>
+                  </div>
+                  <div style="clear:both"></div>
+              </div>
+
+          </div>
+      </div>
+   </div>
+</div>
+<div class="div-block-price-book _div-block-price-book" id="li_sd_price" style="display: none">
+
+    <a href="javascript:" class="_minimize_tool addon-minimize-tool">
+
+    </a>
+
+    <h1 class="addon-lg-title">Công Cụ Đặt Hàng</h1>
+
+    <div class="seu-note-book" id="_box_input_exception">
+        <div class="note-imgv2"></div>
+
+        <div class="note-item">
+            <span>Giá:</span>
+            <p>
+                <input type="text" id="_price" class="form-control" placeholder="Giá" />
+            </p>
+        </div>
+
+        <div class="note-item">
+            <span>Thuộc tính:</span>
+            <p>
+                <textarea class="addon-width-full form-control" rows="3" id="_properties" placeholder="Nhập màu sắc, kích thước VD:Màu đen; Size 41" name="_properties"></textarea>
+            </p>
+        </div>
+
+        <div class="note-item">
+            <span>Số lượng:</span>
+            <p>
+                <input type="text" class="form-control" id="_quantity" placeholder="Số lượng" />
+            </p>
+        </div>
+    </div>
+
+    <div class="_div_category">
+
+
+        <p>Chọn danh mục <span class=text-danger">*</span>: </p>
+
+        <select data-loaded="0" class="_select_category form-control" style="width: 100%;">
+            <option value="0">.</option>
+        </select>
+
+        <input placeholder="Tự nhập danh mục" class="form-control _input_category addon-margin-top-10" style="display: none; width: 100%;" />
+
+        <p class="addon-lbl-th">Thương Hiệu: </p>
+
+        <input type="text" placeholder="Nhập thương hiệu của sản phẩm" class="form-control _brand_item" style="width: 100%;" />
+    </div>
+
+    <div class="note-text">
+        <p>Chú thích: </p>
+        <textarea cols="60" class="form-control _comment_item" placeholder="Chú thích cho sản phẩm" name="_comment_item"></textarea>
+    </div>
+
+    <div class="xbTipBlock add-book">
+        <div class="add-button" id="block_button_sd">
+            <!--<button class="_addToCart btnAddToCart" type="button"></button>-->
+
+            <button class="_addToCart btn btn-danger text-uppercase btnAddToCart" style="background: #000;border: none;padding: 5px 10px;cursor: pointer;">Đặt hàng</button>
+
+            <a href="javascript:loadStore()" class="_link-detail-cart" target="_blank">Vào giỏ hàng</a>
+
+            <div class="note-img"></div>
+        </div>
+    </div>
+
+    <span class="pull-right hidden">
+        <b>
+            Phiên bản <span class="_addon-version">---</span>
+        </b>
+    </span>
+
+</div>
