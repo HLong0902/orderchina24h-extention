@@ -1,19 +1,12 @@
-// ==UserScript==
-// @name           nhaphangchina.vn
-// @namespace      nhaphangchina.vn
-// @description    Công cụ Order Taobao, 1688, Tmall của Nhập Hàng China
-// @include        http://item.taobao.com/*
-// @include        http://item.lp.taobao.com/*
-// @include        http://item.beta.taobao.com/*
-// @include        http://auction.taobao.com/*
-// @include        http://item.tmall.com/*
-// @include        http://detail.tmall.com/*
-// @include        http://detailp4p.china.alibaba.com/*
-// @include        http://detail.china.alibaba.com/*
-// @include        http://detailp4p.1688.com/*
-// @include        http://detail.1688.com/*
-// @include        http://vip.com/detail*
-
+async function getCookiesFromOtherWebsite(url) {
+    // Sử dụng API chrome.cookies để lấy cookie
+    // Trong content script
+    await chrome.runtime.sendMessage({
+        type: 'getCookies',
+        url: url,
+        name: name
+    });
+}
 // ==UserScript==
 var domainurlstatic ="https://giaodich.hangquangchau24h.vn/static/images/";
 var domainurllogo ="https://hangquangchau24h.vn/images/";
@@ -326,8 +319,7 @@ function insertAfter(newElement,targetElement) {
         parent.insertBefore(newElement, targetElement.nextSibling);
     }
 }
-function httpGet(theUrl)
-{
+function httpGet(theUrl) {
     var xmlHttp = null;
 
     xmlHttp = new XMLHttpRequest();
@@ -335,11 +327,10 @@ function httpGet(theUrl)
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
-function rateMoney()
-{
+function rateMoney() {
 	var ratemn = httpGet(urlrate);
     return ratemn;
-}        
+}
 function getHostname() {
     var url = window.location.href;  
 	//console.log(url);
@@ -378,8 +369,7 @@ function roundNumber(num, dec) {
     var result = Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
     return result;
 }
-function is_valid_url(url)
-{
+function is_valid_url(url) {
     return url.match(/^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/);
 }
 //ham xu lý gia trong truong hop nguoi dung su dung chuc nang tu dong dich cua Chrome
@@ -657,8 +647,8 @@ function taobao(cart_url,url_save) {
 				}
 				price = processPrice(price);
 			}
-		}  else if (document.querySelectorAll("div[class^='Price--originPrice'], div[class*='Price--originPrice]").length > 0) {
-            price = document.querySelectorAll("div[class^='Price--originPrice'], div[class*='Price--originPrice]")[0].innerText.match(/[0-9]*[\.,]?[0-9]+/g); 
+		}  else if (document.querySelectorAll("div[class^='Price--originPrice'], div[class*='Price--originPrice']").length > 0) {
+            price = document.querySelectorAll("div[class^='Price--originPrice'], div[class*='Price--originPrice']")[0].innerText.match(/[0-9]*[\.,]?[0-9]+/g);
             price = processPrice(price);
         } else {
             price = 0;
@@ -1262,6 +1252,9 @@ function taobao(cart_url,url_save) {
                     updatepage(request.response);
                     document.getElementById("block_button").innerHTML=beforeHtml;
                     addListener(document.getElementById("id_nhaphang_add_cart"), 'click', linkClick);
+                    break;
+                case "cookies":
+                    console.log(request.cookies);
                     break;
                 default :
                     break;
@@ -2866,6 +2859,7 @@ function alibaba(cart_url,url_save) {
         // self.xmlHttpReq.send(cart_url);
 
         console.log('func addcart 1688.com==========');
+        getCookiesFromOtherWebsite("https://giaodich.hangquangchau24h.vn");
         chrome.runtime.sendMessage({
             action: "request_server",
             method: 'GET',
@@ -2887,6 +2881,9 @@ function alibaba(cart_url,url_save) {
                     if(document.getElementById("id_nhaphang_add_cart")!=null){
                       document.getElementById("id_nhaphang_add_cart").addEventListener('click', linkClick);
                     }
+                    break;
+                case "cookies":
+                    console.log(request.cookies);
                     break;
                 default :
                     break;
@@ -3252,8 +3249,6 @@ function alibaba(cart_url,url_save) {
 	}
 }
 
-
-
 // VIPSHOP -------------------
 
 function vipshop(cart_url, url_save) {
@@ -3505,6 +3500,10 @@ function vipshop(cart_url, url_save) {
                     document.getElementById("block_button").innerHTML=beforeHtml;
                     addListener(document.getElementById("id_nhaphang_add_cart"), 'click', linkClick);
                     break;
+
+                case "cookies":
+                    console.log(request.cookies);
+                    break;
                 default :
                     break;
             }
@@ -3630,12 +3629,6 @@ function vipshop(cart_url, url_save) {
     };
 }
 
-
-
-
-
-
-
 var host = getHostname();
 var ex=null;
 
@@ -3756,16 +3749,14 @@ $(document).on('click','#vnshoptimkiem',function(){
 
 });
 //taobao
-if(host.indexOf('taobao')!=-1 || host.indexOf('tmall')!=-1 || host.indexOf('yao.95095.com')!=-1)
-{
+if(host.indexOf('taobao')!=-1 || host.indexOf('tmall')!=-1 || host.indexOf('yao.95095.com')!=-1) {
     if(host.indexOf('login.taobao') == -1 && host.indexOf('login.tmall') == -1)
 	{
 		ex=new taobao(url,url_save);
 	}
 }
 //alibaba
-if(host.indexOf('alibaba')!=-1 || host.indexOf('detail.1688.com')!=-1)
-{
+if(host.indexOf('alibaba')!=-1 || host.indexOf('detail.1688.com')!=-1) {
     var curr = window.location.href;
     if(curr.indexOf('__NEWPC__')==-1)
 	{
