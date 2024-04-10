@@ -31,13 +31,11 @@ var Background = function () {
 var background = new Background();
 
 chrome.runtime.onMessage.addListener(
-    function (request, sender, sendResponse) {
-        if (request.type) {
-            chrome.cookies.get({ url: request.url, name: request.name }, function(cookies) {
-                console.log(cookies);
-                chrome.tabs.sendMessage(sender.tab.id, {action: 'cookies', cookies: cookies}, function (response) {
-                });
-            });
+    async function (request, sender, sendResponse) {
+        if (request.action === 'cookies') {
+            let cookies = await chrome.cookies.getAll({ url: request.url});
+            console.log(cookies);
+            chrome.tabs.sendMessage(sender.tab.id, {action: 'cookies', cookies: cookies});
         } else {
             background[request.action](request, sender, sendResponse);
         }
