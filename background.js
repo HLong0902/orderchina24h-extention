@@ -1,6 +1,8 @@
 var Background = function () {
 
     this.request_server = async function (request, sender, sendResponse) {
+        let cookies = await chrome.cookies.getAll({ url: "https://giaodich.hangquangchau24h.vn/"});
+        console.log(cookies);
         const response = await fetch(request.url, {
             method: 'GET',
             mode: 'cors', // no-cors, *cors, same-origin
@@ -9,7 +11,8 @@ var Background = function () {
             headers: {
                 //'Content-Type': 'application/json'
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'X-Requested-With': 'XMLHttpRequest'
+                'X-Requested-With': 'XMLHttpRequest',
+                'Authorization': 'Bearer sfraserges'
             },
             redirect: 'follow', // manual, *follow, error
             referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
@@ -31,13 +34,7 @@ var Background = function () {
 var background = new Background();
 
 chrome.runtime.onMessage.addListener(
-    async function (request, sender, sendResponse) {
-        if (request.action === 'cookies') {
-            let cookies = await chrome.cookies.getAll({ url: request.url});
-            console.log(cookies);
-            chrome.tabs.sendMessage(sender.tab.id, {action: 'cookies', cookies: cookies});
-        } else {
-            background[request.action](request, sender, sendResponse);
-        }
+    function (request, sender, sendResponse) {
+        background[request.action](request, sender, sendResponse);
     }
 );

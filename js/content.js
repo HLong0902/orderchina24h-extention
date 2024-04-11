@@ -1,29 +1,3 @@
-async function getCookiesFromOtherWebsite(url) {
-    // Sử dụng API chrome.cookies để lấy cookie
-    // Trong content script
-    await chrome.runtime.sendMessage({
-        action: 'cookies',
-        url: url
-    });
-}
-// async function getCookiesFromOtherWebsite(url) {
-//     return new Promise((resolve, reject) => {
-//         chrome.runtime.sendMessage(
-//             {
-//                 action: 'cookies',
-//                 url: url
-//             },
-//             function (response) {
-//                 if (response && response.action === 'cookies') {
-//                     resolve(response.cookies);
-//                 } else {
-//                     reject(new Error('Failed to retrieve cookies'));
-//                 }
-//             }
-//         );
-//     });
-// }
-
 // ==UserScript==
 var domainurlstatic = "https://giaodich.hangquangchau24h.vn/static/images/";
 var domainurl = "https://giaodich.hangquangchau24h.vn/extension/";
@@ -2677,14 +2651,6 @@ function alibaba(cart_url, url_save) {
         // self.xmlHttpReq.send(cart_url);
 
         console.log('func addcart 1688.com==========');
-        // getCookiesFromOtherWebsite("https://giaodich.hangquangchau24h.vn").then(cookies => {
-        //     // Use the retrieved cookies here
-        //     console.log(cookies);
-        // })
-        //     .catch(error => {
-        //         console.error(error);
-        //     });
-        this.getCookiesFromOtherWebsite("https://giaodich.hangquangchau24h.vn").then()
         chrome.runtime.sendMessage({
             action: "request_server",
             method: 'GET',
