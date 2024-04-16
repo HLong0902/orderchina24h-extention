@@ -1,7 +1,7 @@
 // ==UserScript==
 var domainurlstatic = "https://giaodich.hangquangchau24h.vn/static/images/";
 var domainurl = "https://giaodich.hangquangchau24h.vn/extension/";
-var domain_addcart = "https://giaodich.hangquangchau24h.vn/cart/addtocart/";
+var domain_addcart = "http://localhost:8081/cart/add-cart/";
 var urlrate = "https://hangquangchau24h.vn/api/rate.php";
 var beforeHtml = '';
 
