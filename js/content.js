@@ -1,7 +1,7 @@
 // ==UserScript==
 var domainurlstatic = "https://giaodich.hangquangchau24h.vn/static/images/";
 var domainurl = "https://giaodich.hangquangchau24h.vn/extension/";
-var domain_addcart = "http://localhost:8081/cart/add-cart/";
+var domain_addcart = "http://localhost:8081/cart/add-cart";
 var urlrate = "https://hangquangchau24h.vn/api/rate.php";
 var beforeHtml = '';
 
@@ -1178,7 +1178,9 @@ function taobao(cart_url, url_save) {
             switch (request.action) {
                 case "after_request_server":
                     updatepage(request.response);
-                    document.getElementById("block_button").innerHTML = beforeHtml;
+                    if (beforeHtml != '') {
+                        document.getElementById("block_button").innerHTML = beforeHtml;
+                    }
                     addListener(document.getElementById("id_nhaphang_add_cart"), 'click', linkClick);
                     break;
                 case "cookies":
@@ -1201,11 +1203,11 @@ function taobao(cart_url, url_save) {
         try {
 
             //var str_arr = JSON.parse(str);
-            if (str_arr.response === true) {
+            // if (str_arr.response === true) {
                 var htmlObject = document.createElement('div');
                 htmlObject.innerHTML = str_arr.message;
                 document.body.appendChild(htmlObject);
-            }
+            // }
         } catch (e) {
             var htmlObject = document.createElement('div');
             htmlObject.innerHTML = str_arr.message;
@@ -2684,11 +2686,11 @@ function alibaba(cart_url, url_save) {
     function updatepage(str_arr) {
         try {
             //var str_arr = JSON.parse(str);
-            if (str_arr.response === true) {
+            // if (str_arr.response === true) {
                 var htmlObject = document.createElement('div');
                 htmlObject.innerHTML = str_arr.message;
                 document.body.appendChild(htmlObject);
-            }
+            // }
         } catch (e) {
             var htmlObject = document.createElement('div');
             htmlObject.innerHTML = str;
@@ -3247,7 +3249,9 @@ function vipshop(cart_url, url_save) {
             switch (request.action) {
                 case "after_request_server":
                     updatepage(request.response);
-                    document.getElementById("block_button").innerHTML = beforeHtml;
+                    if (beforeHtml != '') {
+                        document.getElementById("block_button").innerHTML = beforeHtml;
+                    }
                     addListener(document.getElementById("id_nhaphang_add_cart"), 'click', linkClick);
                     break;
 
@@ -3263,11 +3267,11 @@ function vipshop(cart_url, url_save) {
     function updatepage(str_arr) {
         try {
             //var str_arr = JSON.parse(str);
-            if (str_arr.response === true) {
+
                 var htmlObject = document.createElement('div');
                 htmlObject.innerHTML = str_arr.message;
                 document.body.appendChild(htmlObject);
-            }
+
         } catch (e) {
             var htmlObject = document.createElement('div');
             htmlObject.innerHTML = str;
