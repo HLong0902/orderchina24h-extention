@@ -2,7 +2,15 @@ var Background = function () {
 
     this.request_server = async function (request, sender, sendResponse) {
         let cookies = await chrome.cookies.getAll({ url: "http://orderchina24h.vn"});
-        console.log(cookies);
+        let token = '';
+
+        cookies.some(function (cookie) {
+            if (cookie.name === 'test') {
+                token = cookie.value;
+                return true;
+            }
+        })
+        console.log(token);
         const response = await fetch(request.url, {
             method: 'GET',
             mode: 'cors', // no-cors, *cors, same-origin
@@ -12,7 +20,7 @@ var Background = function () {
                 //'Content-Type': 'application/json'
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'X-Requested-With': 'XMLHttpRequest',
-                'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJobG9uZzkyYm5AZ21haWwuY29tIiwiZXhwIjoxNzEzMzkyMzc1LCJpYXQiOjE3MTMzNzQzNzV9.wjZYi3wl9MRXha7D1eBNH19KHqtlfwzlQMC8sFwx5Uv3DF8wlnQmT1z18A67BmnlNv74Y12DILiWGgeAjJSECQ'
+                'Authorization': 'Bearer ' + token
             },
             redirect: 'follow', // manual, *follow, error
             referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
