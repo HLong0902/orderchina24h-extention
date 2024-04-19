@@ -5,7 +5,7 @@ var Background = function () {
         let token = '';
 
         cookies.some(function (cookie) {
-            if (cookie.name === 'test') {
+            if (cookie.name === 'x-order-china24h') {
                 token = cookie.value;
                 return true;
             }
