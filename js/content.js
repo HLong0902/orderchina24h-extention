@@ -1,7 +1,7 @@
 // ==UserScript==
 var domainurlstatic = "https://giaodich.hangquangchau24h.vn/static/images/";
 var domainurl = "https://giaodich.hangquangchau24h.vn/extension/";
-var domain_addcart = "http://localhost:8081/cart/add-cart";
+var domain_addcart = "http://orderchina24h.vn:10102/cart/add-cart";
 var urlrate = "https://hangquangchau24h.vn/api/rate.php";
 var beforeHtml = '';
 
@@ -30,7 +30,7 @@ function renderbox(price_result) {
     //html vung mota
     var com_text = '<textarea  rows="2" placeholder="Ghi chú sản phẩm" id="txtBz" style="width: 95%;font-size: 13px;font-family: Arial,serif;padding: 5px;outline: none;border-width: 1px;border-style: solid;border-color: rgb(204, 204, 204);;border-image: initial;" name="txtBz"></textarea>';
     //html vung luu lai
-    var home_link = '<a href="//hangquangchau24h.vn" title="Đặt hàng quảng châu" target="_blank" style="float:right; font-size:13px; font-weight:600; text-decoration:none; padding:5px 3px 0 0; color:#FFFFFF !important;">hangquangchau24h.vn</a>';
+    var home_link = '<a href="//orderchina24h.vn" title="Đặt hàng quảng châu" target="_blank" style="float:right; font-size:13px; font-weight:600; text-decoration:none; padding:5px 3px 0 0; color:#FFFFFF !important;">orderchina24h.vn</a>';
     var save_text = '<div style="float:right;margin-right:5px">' + home_link + '</div>';
 
     //html toan bo addon
@@ -160,8 +160,8 @@ function render2() {
         '<li>' +
         '<ul>' +
         '<li class="pos-relative" style="padding: 15px 20px 0;border-left:1px solid #000000;border-right:1px solid #000000">' +
-        '<a style="color: #ffffff"  href="https://giaodich.hangquangchau24h.vn/order/lists?spm" target="_blank" class="save-product-ao">Quản lý đơn hàng </a><br />	' +
-        '<a style="color: #ffffff"  href="https://giaodich.hangquangchau24h.vn/login" target="_blank" class="save-product-ao">Đăng nhập </a>' +
+        '<a style="color: #ffffff"  href="https://orderchina24h.vn/order/lists?spm" target="_blank" class="save-product-ao">Quản lý đơn hàng </a><br />	' +
+        '<a style="color: #ffffff"  href="https://orderchina24h.vn/login" target="_blank" class="save-product-ao">Đăng nhập </a>' +
         '</li>' +
         '</ul>' +
         '</li>' +
@@ -169,7 +169,7 @@ function render2() {
         '<a href="javascript:void(0)" id="id_nhaphang_add_cart" class="btn btn-danger _addToCart btn-seudo">' +
         '<i class="pull-left icon-ht"></i> ĐẶT VÀO GIỎ HÀNG' +
         '</a>' +
-        '<a href="https://giaodich.hangquangchau24h.vn/cart" target="_blank" id="btnvnshop" class="addon-link _gioHang">' +
+        '<a href="https://orderchina24h.vn/cart" target="_blank" id="btnvnshop" class="addon-link _gioHang">' +
         '<i class="addon-icon-shopping-cart"></i>' +
         'Vào giỏ hàng' +
         '</a>' +
@@ -833,7 +833,6 @@ function taobao(cart_url, url_save) {
     }
 
     function getLink() {
-        var src = domainurlstatic + 'ajax-loader.gif';
         var href = cart_url;
 
         var element = document.getElementsByName("item_id");
@@ -2742,7 +2741,7 @@ function alibaba(cart_url, url_save) {
         if (color_size_name === '' || color_size_name === null)
             var color_size_name = getNewColorSizeName();
 
-        var params = 'type=alibaba';
+        var params = 'type=1688';
         if (parseInt(item_id) > 0)
             params += '&item_id=' + item_id;
         if (item_title !== '')
@@ -3317,7 +3316,7 @@ function vipshop(cart_url, url_save) {
 
         var outer_id = getOuterId();
 
-        var params = 'type=vipshop';
+        var params = 'type=tmall';
 
         if (parseInt(item_id) > 0)
             params += '&item_id=' + item_id;
