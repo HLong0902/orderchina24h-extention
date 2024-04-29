@@ -1,7 +1,7 @@
 // ==UserScript==
 var domainurlstatic = "https://giaodich.hangquangchau24h.vn/static/images/";
 var domainurl = "https://giaodich.hangquangchau24h.vn/extension/";
-var domain_addcart = "http://orderchina24h.vn:10102/cart/add-cart";
+var domain_addcart = "https://orderchina24h.vn/api/cart/add-cart";
 var urlrate = "https://hangquangchau24h.vn/api/rate.php";
 var beforeHtml = '';
 
@@ -2621,10 +2621,10 @@ function alibaba(cart_url, url_save) {
         // else if (window.ActiveXObject) {
         //     self.xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
         // }
-        if (document.getElementById("block_button").innerHTML.indexOf('input') !== -1) {
-            beforeHtml = document.getElementById("block_button").innerHTML;
-            document.getElementById("block_button").innerHTML = '<img style="margin-top:12px;" src="' + domainurl + 'ajax-loader.gif" alt="" />';
-        }
+        // if (document.getElementById("block_button").innerHTML.indexOf('input') !== -1) {
+        //     beforeHtml = document.getElementById("block_button").innerHTML;
+        //     document.getElementById("block_button").innerHTML = '<img style="margin-top:12px;" src="' + domainurl + 'ajax-loader.gif" alt="" />';
+        // }
         // //self.xmlHttpReq.open('POST', strURL, true);
         // self.xmlHttpReq.open('GET', cart_url+strURL, true);
         // self.xmlHttpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
