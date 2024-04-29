@@ -30,14 +30,14 @@ function renderbox(price_result) {
     //html vung mota
     var com_text = '<textarea  rows="2" placeholder="Ghi chú sản phẩm" id="txtBz" style="width: 95%;font-size: 13px;font-family: Arial,serif;padding: 5px;outline: none;border-width: 1px;border-style: solid;border-color: rgb(204, 204, 204);;border-image: initial;" name="txtBz"></textarea>';
     //html vung luu lai
-    var home_link = '<a href="//orderchina24h.vn" title="Đặt hàng quảng châu" target="_blank" style="float:right; font-size:13px; font-weight:600; text-decoration:none; padding:5px 3px 0 0; color:#FFFFFF !important;">orderchina24h.vn</a>';
+    var home_link = '<a href="//orderchina24h.vn" title="Order china 24h" target="_blank" style="float:right; font-size:13px; font-weight:600; text-decoration:none; padding:5px 3px 0 0; color:#FFFFFF !important;">orderchina24h.vn</a>';
     var save_text = '<div style="float:right;margin-right:5px">' + home_link + '</div>';
 
     //html toan bo addon
     return '<div>' +
         '<dl class="clearfix" id="gia-tinphat" style="font-size: 16px;margin: 10px;max-width: 500px;border-width: 3px;border-style: solid;border-color: #ff7300;border-image: initial;overflow: hidden;background: rgba(199, 146, 46, 0.208);">' +
         '<h5 class="tool_title" style="text-align: center;color: rgb(255, 255, 255);text-transform: uppercase;font-family: Arial;font-size: 20px;font-weight: 400;background: #ff7300;padding: 4px 0 7px;margin: 0 0 7px;">Order China 24h Order Tool</h5>' +
-        '<div class="taobaovn-info-inner" style="padding: 0 10px 10px;overflow: hidden;"><img src="http://orderchina24h.vn/src/assets/icons/logo.png" alt="Order China 24h" style="width: 160px;float: left;margin: 8px 15px 0 0;"><ul style="float: left;padding: 0;"><li style="font-size: 14px;font-family: Arial;color: rgb(0, 0, 0);margin-left: 0 !important;list-style: none !important;">Giá bán: <b class="taobaovn-rate taobaovn-color-price" style="color: rgb(211, 26, 26);font-weight: bold;font-size: 18px;">' + (price_result) + '</b> VNĐ ' +
+        '<div class="taobaovn-info-inner" style="padding: 0 10px 10px;overflow: hidden;"><img src="https://orderchina24h.vn/logo.png" alt="Order China 24h" style="width: 160px;float: left;margin: 8px 15px 0 0;"><ul style="float: left;padding: 0;"><li style="font-size: 14px;font-family: Arial;color: rgb(0, 0, 0);margin-left: 0 !important;list-style: none !important;">Giá bán: <b class="taobaovn-rate taobaovn-color-price" style="color: rgb(211, 26, 26);font-weight: bold;font-size: 18px;">' + (price_result) + '</b> VNĐ ' +
         '<span class="taobaovn-cny" style="font-weight: bold;color: #357ae8;font-size: 16px;"></span></li><li style="font-size: 14px;font-family: Arial;color: rgb(0, 0, 0);margin-left: 0 !important;list-style: none !important;">Tỷ giá: <span class="taobaovn-color-price" style="color: rgb(211, 26, 26);font-weight: bold;">' + rateMoney().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</span> VNĐ/tệ</li>' +
         '<li style="font-size: 14px;font-family: Arial;color: rgb(0, 0, 0);margin-left: 0 !important;list-style: none !important;"></li></ul><div class="taobaovn-info-warning" style="float: left;font-size: 13px;color: rgb(0, 0, 0);text-align: left;width: 100%;font-family: Arial;margin: 10px 0 0;padding: 5px 0;">(!!) Vui lòng chọn đầy đủ thông tin sản phẩm ở bên dưới để xem giá chuẩn.</div></div>' +
         '<div class="taobaovn_note" style="float: left;width: 100%;text-align: center;display: table-cell;border-top: 3px solid #ff7300;padding: 10px 0;outline: none;">' + com_text + '<p class="google_translate" style="text-align: center;font-size: 15px !important;color: rgb(0, 0, 0) !important;margin: 10px 0 0 !important;padding: 0 0 0 20px !important;">Lưu ý : <strong style="color: rgb(218, 37, 28) !important;"> không dùng Google Translate</strong> khi thêm sản phẩm!</p></div>' +
@@ -160,7 +160,7 @@ function render2() {
         '<li>' +
         '<ul>' +
         '<li class="pos-relative" style="padding: 15px 20px 0;border-left:1px solid #000000;border-right:1px solid #000000">' +
-        '<a style="color: #ffffff"  href="https://orderchina24h.vn/order/lists?spm" target="_blank" class="save-product-ao">Quản lý đơn hàng </a><br />	' +
+        '<a style="color: #ffffff"  href="https://orderchina24h.vn/manage/order/lists" target="_blank" class="save-product-ao">Quản lý đơn hàng </a><br />	' +
         '<a style="color: #ffffff"  href="https://orderchina24h.vn/login" target="_blank" class="save-product-ao">Đăng nhập </a>' +
         '</li>' +
         '</ul>' +
@@ -169,7 +169,7 @@ function render2() {
         '<a href="javascript:void(0)" id="id_nhaphang_add_cart" class="btn btn-danger _addToCart btn-seudo">' +
         '<i class="pull-left icon-ht"></i> ĐẶT VÀO GIỎ HÀNG' +
         '</a>' +
-        '<a href="https://orderchina24h.vn/cart" target="_blank" id="btnvnshop" class="addon-link _gioHang">' +
+        '<a href="https://orderchina24h.vn/manage/cart" target="_blank" id="btnvnshop" class="addon-link _gioHang">' +
         '<i class="addon-icon-shopping-cart"></i>' +
         'Vào giỏ hàng' +
         '</a>' +
@@ -190,8 +190,8 @@ function render2() {
         '.addon-wrapper ul.addon-list-inline > li a.btn {font-family: Arial, Helvetica, sans-serif !important;margin-top: 13px; font-weight: bold;line-height: 40px;border-radius: 3px;-webkit-box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);-moz-box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);}' +
         '.addon-wrapper .addon-content {display: inline-block; width: 100%;color: #fff;font-size: 13px;float: left;}' +
         '.cf input {width: 150px;height: 19px;padding: 10px 5px;float: left;font: bold 15px "lucida sans", "trebuchet MS", "Tahoma";border: 0;background: #eee;}' +
-        '.cf button {overflow: visible;position: relative;float: right;border: 0;padding: 0;cursor: pointer;height: 39px;width: 110px;font: bold 15px/40px "lucida sans", "trebuchet MS", "Tahoma";color: #fff;text-transform: uppercase;background: #d83c3c;border-radius: 0 3px 3px 0;text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);}' +
-        '.cf button:before {content: "";position: absolute;border-width: 8px 8px 8px 0;border-style: solid solid solid none;border-color: transparent #d83c3c transparent;top: 12px;left: -6px;}' +
+        '.cf button {overflow: visible;position: relative;float: right;border: 0;padding: 0;cursor: pointer;height: 39px;width: 110px;font: bold 15px/40px "lucida sans", "trebuchet MS", "Tahoma";color: #fff;text-transform: uppercase;background: #ff7300;border-radius: 0 3px 3px 0;text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);}' +
+        '.cf button:before {content: "";position: absolute;border-width: 8px 8px 8px 0;border-style: solid solid solid none;border-color: transparent #ff7300 transparent;top: 12px;left: -6px;}' +
         '.addon-wrapper ul.addon-list-inline > li:nth-of-type(2) {padding-left: 20px;padding-right: 20px;text-align: center;}' +
         '.addon-wrapper ul.addon-list-inline > li:nth-of-type(4) {padding-left: 20px;padding-right: 20px;}' +
         '.addon-wrapper ul.addon-list-inline > li:nth-of-type(5) {border-right: 0;padding-left: 20px;}' +
@@ -199,11 +199,11 @@ function render2() {
         '.addon-wrapper ul.addon-list-inline > li:nth-of-type(4) > ul {display: inline-block;width: 100%;height: 67px;}' +
         '.addon-wrapper ul.addon-list-inline > li a.btn-seudo {max-width: 200px;margin-right: 0;color:#fff!important}' +
         '.addon-wrapper ul.addon-list-inline > li a.btn {font-family: Arial, Helvetica, sans-serif !important;margin-top: 13px;font-weight: bold;line-height: 40px;border-radius: 3px;-webkit-box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);-moz-box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);}' +
-        '.addon-wrapper .btn-danger, .addon-wrapper .btn-primary {height: 40px;padding: 0 15px;font-size: 14px;color: #fff;background-color: #d92026;float: left;cursor: pointer;border: 1px solid #df4146;-webkit-box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);-moz-box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);}' +
+        '.addon-wrapper .btn-danger, .addon-wrapper .btn-primary {height: 40px;padding: 0 15px;font-size: 14px;color: #fff;background-color: #ff7300;float: left;cursor: pointer;border: 1px solid #df4146;-webkit-box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);-moz-box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);box-shadow: 3px 4px 5px -1px rgba(0, 0, 0, 0.75);}' +
         '.addon-wrapper .addon-content .addon-link {color: #fff!important;float: left;line-height: 67px;padding-left: 25px;}' +
         '.addon-wrapper .addon-icon-shopping-cart {width: 15px;height: 14px;display: inline-block;background: transparent url(https://hangquangchau24h.vn/images/add_on/addon-icon-shopping-cart.png) no-repeat top left;position: relative;top: 3px;}' +
         'a:hover {text-decoration: underline;}' +
-        '#hideAddon {position: absolute;right: 0;width: 32px;height: 32px;background: url(https://hangquangchau24h.vn/images/add_on/hide.png) no-repeat center right;	z-index: 999999999999;bottom: 0;}' +
+        '#hideAddon {position: absolute;right: 0;width: 32px;height: 32px;background: url(https://orderchina24h.vn/hide.png) no-repeat center right;	z-index: 999999999999;bottom: 0;}' +
         '.cf {padding-right: 15px;} .cf {zoom: 1;}</style>';
     return s;
 }
@@ -2845,7 +2845,7 @@ function alibaba(cart_url, url_save) {
 
         } else {
             if (quantity > 0)
-                xmlhttpPost(getLink(encodeURIComponent('Nh\u01B0 h\u00ECnh;Free size=' + quantity), encodeURIComponent(quantity)));
+                xmlhttpPost(getLink(encodeURIComponent('Như hình;Free size=' + quantity), encodeURIComponent(quantity)));
         }
     }
 
