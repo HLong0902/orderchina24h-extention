@@ -48,7 +48,7 @@ function renderbox(price_result) {
 
 function render2() {
     var s = '<div class="addon-wrapper _addon-wrapper">' +
-        '<a href="javascript:void(0)" id="hideAddon" class="hideAddon" style="float: right">&nbsp;&nbsp;&nbsp;</a>' +
+        '<a href="javascript:void(0)" id="hideAddon" class="hideAddon" style="float: right"><img src="http://orderchina24h.vn/hide.png"></a>' +
         '<div class="addon-alert _alert-shop-credible "><span> </span><span class="close-warning-ao _close-warning-ao"></span></p></div>' +
         '<div class="addon-content" id="vna-ddon-content" style="display:inline-block">' +
         '<div class="addon-block">' +
@@ -203,7 +203,7 @@ function render2() {
         '.addon-wrapper .addon-content .addon-link {color: #fff!important;float: left;line-height: 67px;padding-left: 25px;}' +
         '.addon-wrapper .addon-icon-shopping-cart {width: 15px;height: 14px;display: inline-block;background: transparent url(https://hangquangchau24h.vn/images/add_on/addon-icon-shopping-cart.png) no-repeat top left;position: relative;top: 3px;}' +
         'a:hover {text-decoration: underline;}' +
-        '#hideAddon {position: absolute;right: 0;width: 32px;height: 32px;background: url(https://orderchina24h.vn/hide.png) no-repeat center right;	z-index: 999999999999;bottom: 0;}' +
+        '#hideAddon {position: absolute;right: 0;width: 32px;height: 32px;	z-index: 999999999999;bottom: 0;}' +
         '.cf {padding-right: 15px;} .cf {zoom: 1;}</style>';
     return s;
 }
