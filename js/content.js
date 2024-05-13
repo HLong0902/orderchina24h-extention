@@ -8,7 +8,7 @@ var beforeHtml = '';
 var urlParams = ({
     getUrlVars: function (url) {
         var vars = [], hash;
-        if (url === null) {
+        if (url == null) {
             url = window.location.href;
         }
         var hashes = url.slice(url.indexOf('?') + 1).split('&');
@@ -26,7 +26,7 @@ var urlParams = ({
 
 function renderbox(price_result) {
     //html vung hien thi gia
-    var price_text = '<div style="font-weight: bold;color: blue;line-height: 40px;font-size: 22px;font-family: Roboto,Arial,serif;margin-bottom: 0;" id="tinphat-price">Gi\u00E1 t\u1EA1m t\u00EDnh : ' + (price_result) + ' VN\u0110</div> ';
+    var price_text = '<div style="font-weight: bold;color: blue;line-height: 40px;font-size: 22px;font-family: Roboto,Arial,serif;margin-bottom: 0;" id="tinphat-price">Giá tạm tính : ' + (price_result) + ' VNĐ</div> ';
     //html vung mota
     var com_text = '<textarea  rows="2" placeholder="Ghi chú sản phẩm" id="txtBz" style="width: 95%;font-size: 13px;font-family: Arial,serif;padding: 5px;outline: none;border-width: 1px;border-style: solid;border-color: rgb(204, 204, 204);;border-image: initial;" name="txtBz"></textarea>';
     //html vung luu lai
@@ -262,14 +262,14 @@ function load_template() {
     var con = document.querySelectorAll("._addon-template")[0];
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
+        if (xhr.readyState == 4 && xhr.status == 200) {
             con.innerHTML = xhr.responseText;
 
             checkUrl();
             getDataSearch();
             document.querySelectorAll("._is_translate")[0].disabled = false;
             setTimeout(function () {
-                document.querySelectorAll("._is_translate")[0].checked = translate_value_bg === 1;
+                document.querySelectorAll("._is_translate")[0].checked = translate_value_bg == 1;
                 document.querySelectorAll("._is_translate")[0].disabled = false
             }, 2000)
         }
@@ -285,7 +285,7 @@ function insertAfter(newElement, targetElement) {
     var parent = targetElement.parentNode;
 
     //if the parents lastchild is the targetElement...
-    if (parent.lastchild === targetElement) {
+    if (parent.lastchild == targetElement) {
         //add the newElement after the target element.
         parent.appendChild(newElement);
     } else {
@@ -347,7 +347,7 @@ function roundNumber(num, dec) {
 
 //ham xu lý gia trong truong hop nguoi dung su dung chuc nang tu dong dich cua Chrome
 function processPrice(price) {
-    if (price === null || price === 0) return 0;
+    if (price == null || price == 0) return 0;
     if (price.indexOf(',') > 0) {
         var p = String(price).replace('.', '');
         p = p.replace(',', '.');
@@ -363,9 +363,9 @@ $(document).on('click', '#hideAddon', function () {
 
 function showHideAddon() {
     var el = document.getElementById("vna-ddon-content");
-    //el.style.visibility = (el.style.display === "inline-block"||el.style.display === "inline-block") ? "none" : "none";//han hien thang dialoge
+    //el.style.visibility = (el.style.display == "inline-block"||el.style.display == "inline-block") ? "none" : "none";//han hien thang dialoge
     //document.body.style.overflow=(document.body.style.overflow=="")?"hidden":"";//khoa scroll window
-    if (el.style.display === "" || el.style.display === "inline-block") {
+    if (el.style.display == "" || el.style.display == "inline-block") {
         localStorage.setItem("hideAddon", "1");
         el.style.display = "none";
     } else {
@@ -378,7 +378,7 @@ function showBeginAddon() {
     try {
         var showAddon = localStorage.getItem("hideAddon");
         console.log(showAddon);
-        if (showAddon === 1 || showAddon === "1") {
+        if (showAddon == 1 || showAddon == "1") {
             var el = document.getElementById("vna-ddon-content");
             document.getElementById("vna-ddon-content").style.display = "none";
             console.log('ggg');
@@ -470,7 +470,7 @@ function taobao(cart_url, url_save) {
                 try {
                     var p_p = document.getElementById('J_PromoPrice');
                     var tb = document.getElementsByClassName("tb-promo-price-type")[0].textContent;
-                    if (p_p.getElementsByTagName("strong").length > 0 && p_p.getElementsByTagName("strong")[0].textContent !== '' && tb.indexOf('VIP') === -1)
+                    if (p_p.getElementsByTagName("strong").length > 0 && p_p.getElementsByTagName("strong")[0].textContent !== '' && tb.indexOf('VIP') == -1)
                         p_e = p_p.getElementsByTagName("strong")[0];
                 } catch (e) {
                 }
@@ -499,18 +499,18 @@ function taobao(cart_url, url_save) {
 
         if (tm_p_e.length > 0 || tb_p_e.length > 0) {
             var normal_price = document.getElementById('J_StrPrice');
-            if (normal_price === null) {
+            if (normal_price == null) {
                 normal_price = document.getElementById('J_StrPriceModBox');
-                if (normal_price === null) {
+                if (normal_price == null) {
                     normal_price = document.getElementById('J_StrPriceModBox');
                 }
             }
-            if (normal_price === null) {
+            if (normal_price == null) {
                 normal_price = document.getElementById('J_priceStd');
             }
 
             var promotion_price = document.getElementById('J_PromoPrice');
-            if (promotion_price === null) {
+            if (promotion_price == null) {
                 promotion_price = document.getElementById('J_SPrice');
             }
 
@@ -550,7 +550,7 @@ function taobao(cart_url, url_save) {
                         // 12/12/2013
                         if (promotion_price.className = 'tb-rmb-num') {
                             if (promotion_price.getElementsByClassName('tb-promo-price-type').length > 0) {
-                                if ((price === 0 || price === null) & document.getElementsByClassName('tb-rmb-num').length > 0) {
+                                if ((price == 0 || price == null) & document.getElementsByClassName('tb-rmb-num').length > 0) {
                                     price = document.getElementsByClassName('tb-rmb-num')[0].innerHTML.match(/[0-9]*[\.,]?[0-9]+/g);
                                 }
                             } else {
@@ -563,13 +563,13 @@ function taobao(cart_url, url_save) {
                 }
                 price = processPrice(price);
 
-                if (price === 0) { // Try if price not found
+                if (price == 0) { // Try if price not found
                     price = normal_price.getElementsByClassName('tm-price');
                     if (price.length > 0) {
                         price = price[0].textContent.match(/[0-9]*[\.,]?[0-9]+/g);
                     } else {
                         price = document.getElementById('J_StrPriceModBox');
-                        if (price === null) {
+                        if (price == null) {
                             price = document.getElementById('J_priceStd');
                         }
                         if (price !== 0) {
@@ -585,13 +585,13 @@ function taobao(cart_url, url_save) {
             } else {
                 if (window.location.href.indexOf('tmall') > -1) {
 
-                    if (normal_price === null) {
+                    if (normal_price == null) {
                         normal_price = document.getElementById('J_StrPrice');
                     }
-                    if (normal_price === null) {
+                    if (normal_price == null) {
                         normal_price = document.getElementById('J_StrPriceModBox');
                     }
-                    if (normal_price === null) {
+                    if (normal_price == null) {
                         normal_price = document.getElementById('J_priceStd');
 
                     }
@@ -659,7 +659,7 @@ function taobao(cart_url, url_save) {
                 }
             }
         }
-        if (outer_id === null) {
+        if (outer_id == null) {
             outer_id = data_value.replace(/\:/g, '').replace(/\;/g, '').replace(/\ /g, '');
         }
 
@@ -717,14 +717,14 @@ function taobao(cart_url, url_save) {
             var img_src = null;
         }
 
-        if (img_src === null) {
+        if (img_src == null) {
             try {
                 img_src = document.getElementById('J_ZoomHook').getAttribute("src");
             } catch (e) {
                 var img_src = null;
             }
         }
-        if (img_src === null) {
+        if (img_src == null) {
             try {
                 img_src = document.getElementById('J_ThumbView').getAttribute("src");
             } catch (e) {
@@ -732,7 +732,7 @@ function taobao(cart_url, url_save) {
             }
         }
 
-        if (img_src === null) {
+        if (img_src == null) {
             try {
                 var imgElement = document.querySelectorAll('img');
                 if (imgElement.length > 0) {
@@ -783,7 +783,7 @@ function taobao(cart_url, url_save) {
 
             seller_name = (shop_info.length > 0 ? shop_info[0].getElementsByTagName('a')[0].textContent : '');
 
-            if (seller_name === '') {
+            if (seller_name == '') {
                 // Find base info
                 if (document.getElementsByClassName('base-info').length > 0) {
                     for (var i = 0; i < document.getElementsByClassName('base-info').length; i++) {
@@ -803,7 +803,7 @@ function taobao(cart_url, url_save) {
             }
         }
 
-        if (seller_name === '') {
+        if (seller_name == '') {
 
             if (document.getElementsByClassName('ShopHeader--title--2qsBE1A').length > 0) {
                 seller_name = document.getElementsByClassName('ShopHeader--title--2qsBE1A')[0].innerHTML;
@@ -819,7 +819,7 @@ function taobao(cart_url, url_save) {
             x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
             y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
             x = x.replace(/^\s+|\s+$/g, "");
-            if (x === c_name) {
+            if (x == c_name) {
                 return unescape(y);
             }
         }
@@ -842,7 +842,7 @@ function taobao(cart_url, url_save) {
             var item_id = element.value;
         } else var item_id = 0;
 
-        if (item_id === 0 || item_id === null || item_id === '') {
+        if (item_id == 0 || item_id == null || item_id == '') {
             var element = document.getElementsByName("item_id_num");
 
             if (element.length > 0) {
@@ -850,7 +850,7 @@ function taobao(cart_url, url_save) {
                 var item_id = element.value;
             } else var item_id = 0;
         }
-        if (item_id === 0 || item_id === null || item_id === '') {
+        if (item_id == 0 || item_id == null || item_id == '') {
             if (window.location.href.indexOf('tmall.hk') <= 0) {
                 var path = window.location.pathname;
                 id = /item\/(.+)\.htm/i.exec(path);
@@ -864,7 +864,7 @@ function taobao(cart_url, url_save) {
             }
 
         }
-        if (item_id === 0 || item_id === null || item_id === '') {
+        if (item_id == 0 || item_id == null || item_id == '') {
             var element = document.getElementById("LineZing");
 
             if (element !== null) {
@@ -872,7 +872,7 @@ function taobao(cart_url, url_save) {
             } else var item_id = 0;
         }
 
-        if (item_id === 0 || item_id === null || item_id === '') {
+        if (item_id == 0 || item_id == null || item_id == '') {
             var element = document.getElementById("aliww-click-trigger");
 
             if (element !== null) {
@@ -880,7 +880,7 @@ function taobao(cart_url, url_save) {
             } else var item_id = 0;
         }
 
-        if (item_id === 0 || item_id === null || item_id === '') {
+        if (item_id == 0 || item_id == null || item_id == '') {
             var item_link = window.location.href;
             item_id = urlParams.getUrlVars(item_link)['id'];
         }
@@ -904,7 +904,7 @@ function taobao(cart_url, url_save) {
             url_params = element.getAttribute('data-url');
         }
 
-        if (url_params === '' || url_params === null) {
+        if (url_params == '' || url_params == null) {
             if (element.hasAttribute("data-api"))
                 url_params = element.getAttribute('data-api');
         }
@@ -915,13 +915,13 @@ function taobao(cart_url, url_save) {
             seller_id = urlParams.getUrlVars(url_params)['user_num_id'];
 
 
-        if (seller_id === "" && document.getElementById("J_Pine") !== null) {
+        if (seller_id == "" && document.getElementById("J_Pine") !== null) {
             element = document.getElementById("J_Pine");
             seller_id = element.getAttribute('data-sellerid');
         }
 
         //Taobao New UI 2023
-        if (seller_id === "") {
+        if (seller_id == "") {
             var allSpan = document.querySelectorAll("img[class^='PicGallery--thumbnailPic'], img[class*='PicGallery--thumbnailPic'], img[class*='ShopHeader--pic'], img[class^='ShopHeader--pic']");
             if (allSpan.length > 0) {
                 for (var i = 0; i < allSpan.length; i++) {
@@ -942,7 +942,7 @@ function taobao(cart_url, url_save) {
             }
         }
 
-        if (seller_id === "") {
+        if (seller_id == "") {
             //Taobao New UI 2023
             var allDiv = document.querySelectorAll('a');
             if (allDiv.length > 0) {
@@ -958,7 +958,7 @@ function taobao(cart_url, url_save) {
             }
         }
 
-        if (seller_id === "") {
+        if (seller_id == "") {
             var host = window.location.host;
 
             if (host !== "detail.tmall.com" && host !== "detail.tmall.hk") {
@@ -1009,7 +1009,7 @@ function taobao(cart_url, url_save) {
                     var prop_str = ele.getAttribute("data-pv");
                 } else if (window.location.href.indexOf('world.') > 0) { // Tw.taobao
                     var prop_str = ele.getAttribute("data-pv");
-                    if (prop_str === null) {
+                    if (prop_str == null) {
                         var prop_str = ele.getAttribute("data-value");
                     }
 
@@ -1020,7 +1020,7 @@ function taobao(cart_url, url_save) {
                 if (prop_str !== null && prop_str.length > 0) {
                     max_p++;
                     //p_params+='&p'+max_p+'='+prop_str;
-                    if (data_value === '')
+                    if (data_value == '')
                         data_value += prop_str;
                     else data_value += ';' + prop_str;
 
@@ -1031,12 +1031,12 @@ function taobao(cart_url, url_save) {
                     }
                     p_e = p_e[p_e.length - 1];
                     //console.log(p_e);
-                    if (typeof p_e === 'undefined') {
+                    if (typeof p_e == 'undefined') {
                         p_e = ele.getElementsByTagName('i');
                         prop_str = p_e.textContent;
                     } else {
                         prop_str = p_e.textContent;
-                        if (color_size === '')
+                        if (color_size == '')
                             color_size += encodeURIComponent(prop_str);
                         else
                             color_size += ';' + encodeURIComponent(prop_str);
@@ -1051,14 +1051,14 @@ function taobao(cart_url, url_save) {
             for (var i = 0; i < listSelected.length; i++) {
                 var strAttr = listSelected[i].textContent;
                 if (strAttr !== '') {
-                    if (color_size === '')
+                    if (color_size == '')
                         color_size += encodeURIComponent(strAttr);
                     else
                         color_size += ';' + encodeURIComponent(strAttr);
                 }
             }
 
-            if (data_value === '') {
+            if (data_value == '') {
                 var queryString = window.location.search;
                 var urlParam = new URLSearchParams(queryString);
                 skuIdUrl = urlParam.get('skuId');
@@ -1146,7 +1146,7 @@ function taobao(cart_url, url_save) {
         // self.xmlHttpReq.withCredentials = "true";
         //
         // self.xmlHttpReq.onreadystatechange = function() {
-        //     if (self.xmlHttpReq.readyState === 4) {
+        //     if (self.xmlHttpReq.readyState == 4) {
         //         if(strURL.indexOf('item_collect')!=-1)
         //         {
         //             //luu san pham
@@ -1202,7 +1202,7 @@ function taobao(cart_url, url_save) {
         try {
 
             //var str_arr = JSON.parse(str);
-            // if (str_arr.response === true) {
+            // if (str_arr.response == true) {
                 var htmlObject = document.createElement('div');
                 htmlObject.innerHTML = str_arr.message;
                 document.body.appendChild(htmlObject);
@@ -1259,15 +1259,15 @@ function taobao(cart_url, url_save) {
             }
 
         }
-        if (full === true)
+        if (full == true)
             document.getElementById("id_nhaphang_add_cart").setAttribute('target', "_blank");
         else {
             document.getElementById("id_nhaphang_add_cart").setAttribute('target', "");
-            alert("B\u1EA1n ch\u01B0a ch\u1ECDn \u0111\u1EA7y \u0111\u1EE7 thu\u1ED9c t\u00EDnh s\u1EA3n ph\u1EA9m!");
+            alert("Bạn chưa chọn đầy đủ thuộc tính sản phẩm!");
             document.getElementById("id_nhaphang_add_cart").setAttribute('href', 'javascript:void(0);');
             return;
         }
-        if (document.getElementsByClassName('mui-amount-input').length === 0 && (document.getElementById("J_IptAmount") === null || document.getElementById("J_IptAmount") === 'undefined') && document.getElementsByClassName('countValueForPC').length === 0) {
+        if (document.getElementsByClassName('mui-amount-input').length == 0 && (document.getElementById("J_IptAmount") == null || document.getElementById("J_IptAmount") == 'undefined') && document.getElementsByClassName('countValueForPC').length == 0) {
             document.getElementById("id_nhaphang_add_cart").setAttribute('target', "");
             alert("Vui lòng đăng nhập Taobao!");
             document.getElementById("id_nhaphang_add_cart").setAttribute('href', 'javascript:void(0);');
@@ -1300,11 +1300,11 @@ function taobao(cart_url, url_save) {
             }
 
         }
-        if (full === true)
+        if (full == true)
             document.getElementById("id_nhaphang_save_item").setAttribute('target', "_blank");
         else {
             document.getElementById("id_nhaphang_save_item").setAttribute('target', "");
-            alert("B\u1EA1n ch\u01B0a ch\u1ECDn \u0111\u1EA7y \u0111\u1EE7 thu\u1ED9c t\u00EDnh s\u1EA3n ph\u1EA9m!");
+            alert("Bạn chưa chọn đầy đủ thuộc tính sản phẩm!");
             document.getElementById("id_nhaphang_save_item").setAttribute('href', 'javascript:void(0);');
             return;
         }
@@ -1540,7 +1540,7 @@ function alibaba(cart_url, url_save) {
     function getNewColorSizeName() {
 
         var props = document.getElementsByClassName("select_props");
-        if (props === null) { // không có thuộc tính
+        if (props == null) { // không có thuộc tính
             return encodeURIComponent('');
         }
         color_size_name = '';
@@ -1548,7 +1548,7 @@ function alibaba(cart_url, url_save) {
             for (var i = 0; i < props.length; i++) {
                 var element = props[i];
 
-                if (color_size_name === '')
+                if (color_size_name == '')
                     color_size_name += element.options[element.selectedIndex].value;
                 else color_size_name += ';' + element.options[element.selectedIndex].value;
             }
@@ -1561,7 +1561,7 @@ function alibaba(cart_url, url_save) {
     function getColorSizeName() {
         try {
             var buyArea = document.getElementsByClassName("d-sku-content");
-            if (buyArea === null) { // không có thuộc tính
+            if (buyArea == null) { // không có thuộc tính
                 return '';
             }
             var attr_Area = buyArea[0].getElementsByClassName('d-sku-box');
@@ -1572,7 +1572,7 @@ function alibaba(cart_url, url_save) {
             if (selects.length > 0) {
                 for (var i = 0; i < selects.length; i++) {
                     var element = selects[i];
-                    if (color_size_name === '')
+                    if (color_size_name == '')
                         color_size_name += element.getAttribute('data-value');
                     else color_size_name += ';' + element.getAttribute('data-value');
                 }
@@ -1626,8 +1626,8 @@ function alibaba(cart_url, url_save) {
         } catch (e) {
             seller_id = '';
         }
-        if (seller_id === '') {
-            if (typeof iDetailConfig === 'object') {
+        if (seller_id == '') {
+            if (typeof iDetailConfig == 'object') {
                 if (typeof iDetailConfig.userId !== 'undefined') {
                     seller_id = iDetailConfig.userId;
                 }
@@ -1635,7 +1635,7 @@ function alibaba(cart_url, url_save) {
             }
             //seller_id = newData.globalData.offerBaseInfo.sellerUserId.toString();
         }
-        if (seller_id === '') {
+        if (seller_id == '') {
 
             try {
                 var element = document.getElementsByName("sellerId");
@@ -1746,7 +1746,7 @@ function alibaba(cart_url, url_save) {
     //ham lay item_title cua san pham
     function getItemTitle() {
         //var element =document.getElementById("mod-detail-hd");
-        //if(element === null)
+        //if(element == null)
         //	element =document.getElementById("mod-detail-title");
 
         element = document.getElementsByTagName('h1');
@@ -1765,10 +1765,10 @@ function alibaba(cart_url, url_save) {
     //hàm này cần thay thế bản mới
     function getItemImage() {
         var element = document.getElementsByClassName("mod-detail-gallery");
-        if (element.length === 0) {
+        if (element.length == 0) {
             element = document.getElementsByClassName("mod-detail-version2018-gallery");
         }
-        if (element.length === 0) {
+        if (element.length == 0) {
             element = document.getElementsByClassName("detail-gallery-wrapper");
         }
 
@@ -1799,7 +1799,7 @@ function alibaba(cart_url, url_save) {
                     item_image = img_obj[0].getAttribute('src');
                 }
             }
-            if (typeof (item_image) === 'undefined') {
+            if (typeof (item_image) == 'undefined') {
                 var main_image = element[0].getElementsByClassName("vertical-img");
                 var item_image = '';
                 if (main_image !== null) {
@@ -1838,7 +1838,7 @@ function alibaba(cart_url, url_save) {
                         img_obj = l.getElementsByTagName("img");
                         item_image = img_obj[0].getAttribute('src');
                         item_image = item_image.replace('32x32', '400x400')
-                        if (result === '')
+                        if (result == '')
                             result += item_image;
                         else
                             result += '|' + item_image;
@@ -1855,10 +1855,10 @@ function alibaba(cart_url, url_save) {
                 let l = elementparent.getElementsByTagName('input').length;
                 let colprice = 4;
                 //let colsl=
-                if (typeof elementparent.getElementsByTagName('tr')[0].getElementsByTagName('th') === 'object') {
+                if (typeof elementparent.getElementsByTagName('tr')[0].getElementsByTagName('th') == 'object') {
                     let l_th = elementparent.getElementsByTagName('tr')[0].getElementsByTagName('th').length;
                     for (var j1 = 0; j1 < l_th; j1++) {
-                        if (elementparent.getElementsByTagName('tr')[0].getElementsByTagName('th')[j1].textContent === '价格(元)') {
+                        if (elementparent.getElementsByTagName('tr')[0].getElementsByTagName('th')[j1].textContent == '价格(元)') {
                             colprice = j1;
                         }
                     }
@@ -1866,7 +1866,7 @@ function alibaba(cart_url, url_save) {
                 for (var j = 0; j < l; j++) {
                     if (elementparent.getElementsByTagName('input')[j].value !== '' && parseInt(elementparent.getElementsByTagName('input')[j].value) > 0) {
 
-                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[0] === 'object') {
+                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[0] == 'object') {
                             let l = elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[0];
 
                             img_obj = l.getElementsByTagName("img");
@@ -1876,7 +1876,7 @@ function alibaba(cart_url, url_save) {
                             }
                         }
                         if (typeof item_image !== 'undefined') {
-                            if (_result === '')
+                            if (_result == '')
                                 _result += item_image;
                             else
                                 _result += '|' + item_image;
@@ -1890,12 +1890,12 @@ function alibaba(cart_url, url_save) {
             //return result;
         }
 
-        if (result === '') {
+        if (result == '') {
             var dv = document.getElementsByClassName('list-selected');
-            if (dv === null || dv.length === 0) return '';
+            if (dv == null || dv.length == 0) return '';
             dv = dv[0];
             var tbl_info = dv.getElementsByClassName('table-list');
-            if (tbl_info === null || tbl_info.length === 0) return '';
+            if (tbl_info == null || tbl_info.length == 0) return '';
             tbl_info = tbl_info[0];
 
             var trs = tbl_info.getElementsByTagName('tr');
@@ -1910,11 +1910,11 @@ function alibaba(cart_url, url_save) {
                         for (var j = 0; j < divimg.length; j++) {
                             let divtg = divimg[j];
                             var unit_config = JSON.parse(divtg.getAttribute('data-unit-config').replaceAll('\n', ''));
-                            if (unit_config && unit_config.name === color_value) {
+                            if (unit_config && unit_config.name == color_value) {
                                 if (divtg.getAttribute('data-imgs')) {
                                     let data_imgs = JSON.parse(divtg.getAttribute('data-imgs').replaceAll('\n', ''));
                                     if (data_imgs) {
-                                        if (result === '')
+                                        if (result == '')
                                             result += data_imgs.preview;
                                         else
                                             result += '|' + data_imgs.preview;
@@ -1965,7 +1965,7 @@ function alibaba(cart_url, url_save) {
         var price = 0;
         var tbl_price = decodeURIComponent(getPriceTable());
         //console.log("TABLEPRICE:"+getPriceTable());
-        if (tbl_price === '') {
+        if (tbl_price == '') {
             // Giảm giá theo thời gian
             var itemPrice = document.getElementsByClassName("item-price");
             //console.log("giam gia",itemPrice);
@@ -1991,15 +1991,15 @@ function alibaba(cart_url, url_save) {
         }
 
         tbl_price = tbl_price.split(';');
-        if (tbl_price.length === 0) return 0;
+        if (tbl_price.length == 0) return 0;
 
         for (var i = 0; i < tbl_price.length; i++) {
 
             var strs = tbl_price[i].split(':');
             var amounts = strs[0];
             var prices = strs[1];
-            if (amounts.indexOf('\u2265') !== -1) {
-                var str_amounts = amounts.split('\u2265');
+            if (amounts.indexOf('>=') !== -1) {
+                var str_amounts = amounts.split('>=');
                 if (quantity >= parseInt(str_amounts[1])) {
                     price = prices;
                     break;
@@ -2030,8 +2030,8 @@ function alibaba(cart_url, url_save) {
             if (span_amounts.length > 0) {
                 var amount_tg = span_amounts[0].getElementsByTagName('span');
                 var amount = amount_tg[0];
-                if (amount.innerText.indexOf('\u2265') !== -1) {
-                    var prices = amount.innerText.split('\u2265');
+                if (amount.innerText.indexOf('>=') !== -1) {
+                    var prices = amount.innerText.split('>=');
                     if (prices.length > 0 && parseInt(prices[1]) < min) {
                         min = prices[1];
                     }
@@ -2051,12 +2051,12 @@ function alibaba(cart_url, url_save) {
         } else if (document.getElementById("mod-detail-price")) {
             var min = 1;
             var div_prices = document.getElementById("mod-detail-price");
-            if (div_prices === null) {
+            if (div_prices == null) {
                 //alert(min);
                 return min;
             }
             var span_prices = div_prices.getElementsByTagName("span");
-            if (span_prices === null) {
+            if (span_prices == null) {
                 //alert(min);
                 return min;
             }
@@ -2072,8 +2072,8 @@ function alibaba(cart_url, url_save) {
                         min = prices[0];
                     }
                 }
-                if (str.indexOf('\u2265') !== -1) {
-                    var prices = str.split('\u2265');
+                if (str.indexOf('>=') !== -1) {
+                    var prices = str.split('>=');
                     if (prices.length > 0 && parseInt(prices[1]) < min) {
                         min = prices[1];
                     }
@@ -2130,11 +2130,11 @@ function alibaba(cart_url, url_save) {
 						{
 							price = span_prices[i+1].textContent;
 						}
-						if(price_table === '')
+						if(price_table == '')
 							price_table += amount + ':' + processPrice(price);
 						else price_table+=';'+amount+':'+ processPrice(price);
 						*/
-                        if (price_table === '')
+                        if (price_table == '')
                             price_table += amount + ':' + processPrice(price);
                         else price_table += ';' + amount + ':' + processPrice(price);
                     }
@@ -2147,15 +2147,15 @@ function alibaba(cart_url, url_save) {
             }
         } else if (document.getElementsByClassName("mod-detail-price").length > 0) {
             var div_prices = document.getElementById("mod-detail-price");
-            if (div_prices === null) return '';
+            if (div_prices == null) return '';
 
             var tr_amounts = div_prices.getElementsByClassName("amount");
             var tr_prices = div_prices.getElementsByClassName("price");
 
-            if (tr_amounts.length === 0 || tr_prices.length === 0) return '';
+            if (tr_amounts.length == 0 || tr_prices.length == 0) return '';
             tr_amounts = tr_amounts[0];
             var member_lv_wrapper = div_prices.getElementsByClassName('member-lv-wrapper');
-            if (member_lv_wrapper.length === 0) {
+            if (member_lv_wrapper.length == 0) {
                 tr_prices = tr_prices[0];
             } else {
                 tr_prices = tr_prices[1];
@@ -2164,7 +2164,7 @@ function alibaba(cart_url, url_save) {
             var span_amounts = tr_amounts.getElementsByClassName("value");
             var span_prices = tr_prices.getElementsByClassName("value");
 
-            if (span_amounts.length === 0 || span_prices.length === 0) return '';
+            if (span_amounts.length == 0 || span_prices.length == 0) return '';
 
             var price_table = str = '';
 
@@ -2179,7 +2179,7 @@ function alibaba(cart_url, url_save) {
                     if (tr_prices.getElementsByClassName('split').length > 0) {
                         price = span_prices[i + 1].textContent;
                     }
-                    if (price_table === '')
+                    if (price_table == '')
                         price_table += amount + ':' + processPrice(price);
                     else price_table += ';' + amount + ':' + processPrice(price);
                 }
@@ -2208,11 +2208,11 @@ function alibaba(cart_url, url_save) {
 						{
 							price = span_prices[i+1].textContent;
 						}
-						if(price_table === '')
+						if(price_table == '')
 							price_table += amount + ':' + processPrice(price);
 						else price_table+=';'+amount+':'+ processPrice(price);
 						*/
-                        if (price_table === '')
+                        if (price_table == '')
                             price_table += amount + ':' + processPrice(price);
                         else price_table += ';' + amount + ':' + processPrice(price);
                     }
@@ -2245,11 +2245,11 @@ function alibaba(cart_url, url_save) {
 						{
 							price = span_prices[i+1].textContent;
 						}
-						if(price_table === '')
+						if(price_table == '')
 							price_table += amount + ':' + processPrice(price);
 						else price_table+=';'+amount+':'+ processPrice(price);
 						*/
-                        if (price_table === '')
+                        if (price_table == '')
                             price_table += amount + ':' + processPrice(price);
                         else price_table += ';' + amount + ':' + processPrice(price);
                     }
@@ -2285,11 +2285,11 @@ function alibaba(cart_url, url_save) {
 						{
 							price = span_prices[i+1].textContent;
 						}
-						if(price_table === '')
+						if(price_table == '')
 							price_table += amount + ':' + processPrice(price);
 						else price_table+=';'+amount+':'+ processPrice(price);
 						*/
-                        if (price_table === '')
+                        if (price_table == '')
                             price_table += amount + ':' + processPrice(price);
                         else price_table += ';' + amount + ':' + processPrice(price);
                     }
@@ -2306,9 +2306,9 @@ function alibaba(cart_url, url_save) {
     //chỗ này cần sửa cả function
     function getTotalAmount() {
         //lay sub-total
-        if (document.getElementsByClassName('od-pc-offer-price-common') === null || document.getElementsByClassName('od-pc-offer-price-common').length === 0) {
+        if (document.getElementsByClassName('od-pc-offer-price-common') == null || document.getElementsByClassName('od-pc-offer-price-common').length == 0) {
             var dv = document.getElementsByClassName('list-selected');
-            if (dv === null || dv.length === 0) {
+            if (dv == null || dv.length == 0) {
 
                 var dv = document.getElementsByClassName('obj-amount');
                 if (dv !== null && dv.length > 0) {
@@ -2341,7 +2341,7 @@ function alibaba(cart_url, url_save) {
             }
             dv = dv[0];
             var tbl_info = dv.getElementsByClassName('table-list');
-            if (tbl_info === null || tbl_info.length === 0) return '';
+            if (tbl_info == null || tbl_info.length == 0) return '';
             tbl_info = tbl_info[0];
 
             var trs = tbl_info.getElementsByTagName('tr');
@@ -2405,10 +2405,10 @@ function alibaba(cart_url, url_save) {
             var sku_html1 = sku_html.substring(0, sku_html.length - 1);
             var sku_json = JSON.parse(sku_html1);
             Object.entries(sku_json.sku.skuMap).forEach(function (val, idx) {
-                if (val[0] === fullSku) {
+                if (val[0] == fullSku) {
                     price = val[1].price;
                     Object.entries(val[1]).forEach(function (valPrice, pix) {
-                        if (valPrice[0] === "discountPrice") {
+                        if (valPrice[0] == "discountPrice") {
                             price = valPrice[1];
                         }
                     });
@@ -2427,7 +2427,7 @@ function alibaba(cart_url, url_save) {
                     for (var i = 0; i < trs.length; i++) {
                         var tr = trs[i];
                         var data_config = JSON.parse(tr.getAttribute('data-sku-config').replaceAll('\n', ''));
-                        if (data_config.skuName === sku) {
+                        if (data_config.skuName == sku) {
                             //console.log("data-config",data_config.skuName);
                             price = tr.getElementsByClassName('price')[0].getElementsByClassName('value')[0].textContent;
                             //console.log("sku-table-amount",price);
@@ -2452,7 +2452,7 @@ function alibaba(cart_url, url_save) {
         if (document.getElementsByClassName('order-price-wrapper').length > 0) {
             var dv = document.getElementsByClassName('order-price-wrapper');
             var tbl_info = dv[0].getElementsByClassName('selected-list-wrapper');
-            if (tbl_info === null || tbl_info.length === 0) return '';
+            if (tbl_info == null || tbl_info.length == 0) return '';
             tbl_info = tbl_info[0];
 
             var trs = tbl_info.getElementsByClassName('selected-item-wrapper');
@@ -2486,7 +2486,7 @@ function alibaba(cart_url, url_save) {
                                 amount_value = getQuantity();
 
 
-                            if (result === '')
+                            if (result == '')
                                 result += color_value + ';' + size_value + '=' + amount_value + ";" + price;
                             else
                                 result += '|' + color_value + ';' + size_value + '=' + amount_value + ";" + price;
@@ -2503,33 +2503,33 @@ function alibaba(cart_url, url_save) {
                 let l = elementparent.getElementsByTagName('input').length;
                 let colprice = 4;
                 //let colsl=
-                if (typeof elementparent.getElementsByTagName('tr')[0].getElementsByTagName('th') === 'object') {
+                if (typeof elementparent.getElementsByTagName('tr')[0].getElementsByTagName('th') == 'object') {
                     let l_th = elementparent.getElementsByTagName('tr')[0].getElementsByTagName('th').length;
                     for (var j1 = 0; j1 < l_th; j1++) {
-                        if (elementparent.getElementsByTagName('tr')[0].getElementsByTagName('th')[j1].textContent === '价格(元)') {
+                        if (elementparent.getElementsByTagName('tr')[0].getElementsByTagName('th')[j1].textContent == '价格(元)') {
                             colprice = j1;
                         }
                     }
                 }
                 for (var j = 0; j < l; j++) {
                     if (elementparent.getElementsByTagName('input')[j].value !== '' && parseInt(elementparent.getElementsByTagName('input')[j].value) > 0) {
-                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[0] === 'object') {
+                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[0] == 'object') {
                             var color_value = elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[0].textContent.replace('=', '')
                         }
-                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[1] === 'object') {
+                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[1] == 'object') {
                             color_value += ' ' + elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[1].textContent.replace('=', '')
                         }
-                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[2] === 'object') {
+                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[2] == 'object') {
                             color_value += ' ' + elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[2].textContent.replace('=', '')
                         }
-                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[3] === 'object') {
+                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[3] == 'object') {
                             var size_value = elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[3].textContent.replace('=', '')
                         }
-                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[colprice] === 'object') {
+                        if (typeof elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[colprice] == 'object') {
                             var price = elementparent.getElementsByTagName('tr')[j + 1].getElementsByTagName('td')[colprice].textContent
                         }
                         var amount_value = parseInt(elementparent.getElementsByTagName('input')[j].value);
-                        if (result === '')
+                        if (result == '')
                             result += color_value + ';' + size_value + ';' + '=' + amount_value + ";" + price;
                         else
                             result += '|' + color_value + ';' + size_value + ';' + '=' + amount_value + ";" + price;
@@ -2539,10 +2539,10 @@ function alibaba(cart_url, url_save) {
             //return result;
         } else {
             var dv = document.getElementsByClassName('list-selected');
-            if (dv === null || dv.length === 0) return '';
+            if (dv == null || dv.length == 0) return '';
             dv = dv[0];
             var tbl_info = dv.getElementsByClassName('table-list');
-            if (tbl_info === null || tbl_info.length === 0) return '';
+            if (tbl_info == null || tbl_info.length == 0) return '';
             tbl_info = tbl_info[0];
 
             var trs = tbl_info.getElementsByTagName('tr');
@@ -2576,7 +2576,7 @@ function alibaba(cart_url, url_save) {
                                 amount_value = getQuantity();
 
 
-                            if (result === '')
+                            if (result == '')
                                 result += color_value + ';' + size_value + '=' + amount_value + ";" + price;
                             else
                                 result += '|' + color_value + ';' + size_value + '=' + amount_value + ";" + price;
@@ -2631,7 +2631,7 @@ function alibaba(cart_url, url_save) {
         // self.xmlHttpReq.withCredentials = "true";
         //
         // self.xmlHttpReq.onreadystatechange = function() {
-        //     if (self.xmlHttpReq.readyState === 4) {
+        //     if (self.xmlHttpReq.readyState == 4) {
         //         if(strURL.indexOf('item_collect')!=-1)
         //         {
         //             //luu san pham
@@ -2685,7 +2685,7 @@ function alibaba(cart_url, url_save) {
     function updatepage(str_arr) {
         try {
             //var str_arr = JSON.parse(str);
-            // if (str_arr.response === true) {
+            // if (str_arr.response == true) {
                 var htmlObject = document.createElement('div');
                 htmlObject.innerHTML = str_arr.message;
                 document.body.appendChild(htmlObject);
@@ -2719,7 +2719,7 @@ function alibaba(cart_url, url_save) {
         var seller_id = getSellerId();
         var seller_name = getSellerName();
         //lấy số lượng
-        if (quantity === '' || quantity === null)
+        if (quantity == '' || quantity == null)
             var quantity = getQuantity();
 
         //lấy khoi lượng
@@ -2738,7 +2738,7 @@ function alibaba(cart_url, url_save) {
         console.log("1688 ItemImages:" + item_images);
         // lay color_size_name
         // var color_size_name = getColorSizeName();
-        if (color_size_name === '' || color_size_name === null)
+        if (color_size_name == '' || color_size_name == null)
             var color_size_name = getNewColorSizeName();
 
         var params = 'type=1688';
@@ -2746,7 +2746,7 @@ function alibaba(cart_url, url_save) {
             params += '&item_id=' + item_id;
         if (item_title !== '')
             params += '&item_title=' + item_title;
-        if (item_title === '')
+        if (item_title == '')
             params += '&item_title=' + item_link;
 
         if (item_image !== '')
@@ -2791,7 +2791,7 @@ function alibaba(cart_url, url_save) {
 
     function linkClick() {
         if (document.getElementsByClassName('order-has-select-button').length > 0) {
-            if (document.getElementsByClassName('selected-list-wrapper').length === 0) {
+            if (document.getElementsByClassName('selected-list-wrapper').length == 0) {
                 document.getElementsByClassName('order-has-select-button')[0].click();
                 document.getElementsByClassName("selected-list-wrapper")[0].style.zIndex = -1
             }
@@ -2814,8 +2814,8 @@ function alibaba(cart_url, url_save) {
         //var quantity        = parseInt(getQuantity());
         //var quantity        = getQuantity();
         //console.log(" qty",quantity);
-        if (quantity === '' || parseInt(quantity) === 0) {
-            alert('S\u1ED1 l\u01B0\u1EE3ng mua t\u1ED1i thi\u1EC3u l\u00E0 ' + min + ' s\u1EA3n ph\u1EA9m.');
+        if (quantity == '' || parseInt(quantity) == 0) {
+            alert('Số lượng mua tối thiểu là ' + min + ' sản phẩm.');
             return;
         }
         /**
@@ -2825,7 +2825,7 @@ function alibaba(cart_url, url_save) {
          * 3. Số lượng mua có là bộ số của số lượng min
          **/
         if (quantity < min) {
-            alert('S\u1ED1 l\u01B0\u1EE3ng mua t\u1ED1i thi\u1EC3u l\u00E0 ' + min + ' s\u1EA3n ph\u1EA9m.');
+            alert('Số lượng mua tối thiểu là ' + min + ' sản phẩm.');
             return;
         }
 
@@ -2872,7 +2872,7 @@ function alibaba(cart_url, url_save) {
     if (document.getElementsByClassName('obj-order').length > 0) {
         this.htmlOnLoad = function () {
 
-            if ((document.getElementsByClassName("amount-input") === null || document.getElementsByClassName("amount-input") === 'undefined')) {
+            if ((document.getElementsByClassName("amount-input") == null || document.getElementsByClassName("amount-input") == 'undefined')) {
                 //return;
             }
 
@@ -2915,7 +2915,7 @@ function alibaba(cart_url, url_save) {
     } else if (document.getElementById('recyclerview')) {
         window.onload = function () {
 
-            if ((document.getElementsByClassName("amount-input") === null || document.getElementsByClassName("amount-input") === 'undefined')) {
+            if ((document.getElementsByClassName("amount-input") == null || document.getElementsByClassName("amount-input") == 'undefined')) {
                 //return;
             }
 
@@ -2959,7 +2959,7 @@ function alibaba(cart_url, url_save) {
     } else {
         window.onload = function () {
 
-            if ((document.getElementsByClassName("amount-input") === null || document.getElementsByClassName("amount-input") === 'undefined')) {
+            if ((document.getElementsByClassName("amount-input") == null || document.getElementsByClassName("amount-input") == 'undefined')) {
                 //return;
             }
 
@@ -3216,7 +3216,7 @@ function vipshop(cart_url, url_save) {
         // self.xmlHttpReq.withCredentials = "true";
         //
         // self.xmlHttpReq.onreadystatechange = function() {
-        //     if (self.xmlHttpReq.readyState === 4) {
+        //     if (self.xmlHttpReq.readyState == 4) {
         //         if(strURL.indexOf('item_collect')!=-1)
         //         {
         //             //luu san pham
@@ -3295,7 +3295,7 @@ function vipshop(cart_url, url_save) {
         var seller_id = getSellerId();
         var seller_name = getSellerName();
         //lấy số lượng
-        if (quantity === '' || quantity === null)
+        if (quantity == '' || quantity == null)
             var quantity = getQuantity();
 
         //lay comment
@@ -3306,11 +3306,11 @@ function vipshop(cart_url, url_save) {
         //console.log(color_size_name);
         // lay color_size_name
         // var color_size_name = getColorSizeName();
-        if (color_size_name === '' || color_size_name === null)
+        if (color_size_name == '' || color_size_name == null)
             var color_size_name = getColorSizeName();
 
-        if (color_size_name === '') {
-            alert("B\u1EA1n ch\u01B0a ch\u1ECDn \u0111\u1EA7y \u0111\u1EE7 thu\u1ED9c t\u00EDnh s\u1EA3n ph\u1EA9m!");
+        if (color_size_name == '') {
+            alert("Bạn chưa chọn đầy đủ thuộc tính sản phẩm!");
             return false;
         }
 
@@ -3322,7 +3322,7 @@ function vipshop(cart_url, url_save) {
             params += '&item_id=' + item_id;
         if (item_title !== '')
             params += '&item_title=' + item_title;
-        if (item_title === '')
+        if (item_title == '')
             params += '&item_title=' + item_link;
 
         if (item_image !== '')
@@ -3455,9 +3455,9 @@ function callTranserlate(source, target, q) {
             var linkXuong = $("#xuong-taobao").val();
             var query = "";
 
-            if (orderBy === 1 || orderBy === "1") query = "&sort=sale-desc";
+            if (orderBy == 1 || orderBy == "1") query = "&sort=sale-desc";
             if (diadiem !== "0" && diadiem !== 0) query = query + "&loc=" + diadiem;
-            if (linkXuong === 1 || linkXuong === "1") query = query + "&app=shopsearch";
+            if (linkXuong == 1 || linkXuong == "1") query = query + "&app=shopsearch";
 
             //console.log("https://s.taobao.com/search?q="+transerlateLang+query);
             var objData = setDataSearch(transerlateLang, orderBy, diadiem, linkXuong);
@@ -3478,9 +3478,9 @@ function callTranserlate(source, target, q) {
             var query = "";
 
             var urlDefault = "selloffer/offer_search.htm";
-            if (orderBy === 1 || orderBy === "1") query = "&descendOrder=true&sortType=va_rmdarkgmv30&uniqfield=userid";
+            if (orderBy == 1 || orderBy == "1") query = "&descendOrder=true&sortType=va_rmdarkgmv30&uniqfield=userid";
             if (diadiem !== "0" && diadiem !== 0) query = query + "&province=" + diadiem;
-            if (linkXuong === 1 || linkXuong === "1") {
+            if (linkXuong == 1 || linkXuong == "1") {
                 query = query + "&app=shopsearch";
                 urlDefault = "company/company_search.htm";
             }
@@ -3504,22 +3504,16 @@ $(document).on('click', '#vnshoptimkiem', function () {
 });
 //taobao
 if (host.indexOf('taobao') !== -1 || host.indexOf('tmall') !== -1 || host.indexOf('yao.95095.com') !== -1) {
-    if (host.indexOf('login.taobao') === -1 && host.indexOf('login.tmall') === -1) {
+    if (host.indexOf('login.taobao') == -1 && host.indexOf('login.tmall') == -1) {
         ex = new taobao(url, url_save);
     }
 }
 //alibaba
 if (host.indexOf('alibaba') !== -1 || host.indexOf('detail.1688.com') !== -1) {
     var curr = window.location.href;
-    if (curr.indexOf('__NEWPC__') === -1) {
-        if (curr.indexOf('.html?') === -1) {
-            window.location.href = curr + '?__NEWPC__=false';
-        } else {
-            window.location.href = curr + '&__NEWPC__=false';
-        }
-
+    if (curr.indexOf('.html?__NEWPC__') == -1 && curr.indexOf('.html&__NEWPC__') == -1) {
+        window.location.href = curr.substring(0, curr.indexOf("html") + 5) + '__NEWPC__=false';
     }
-
     //console.info(host+'&__NEWPC__=false');
 
     ex = new alibaba(url, url_save);

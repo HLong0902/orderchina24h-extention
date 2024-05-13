@@ -9,7 +9,7 @@
    "content_scripts": [ {
       "all_frames": true,
       "js": [ "js/jquery.js", "js/content.js" ],
-      "matches": [ "http://*.1688.com/*", "https://*.1688.com/*", "https://*.1688.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "http://*.vip.com/*", "https://*.vip.com/*", "http://*.vipshop.com/*", "https://*.vipshop.com/*", "http://*.tmall.hk/*", "https://*.tmall.hk/*", "http://*.yao.95095.com/*", "https://*.yao.95095.com/*" ],
+      "matches": [ "http://*.1688.com/*", "https://*.1688.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "http://*.vip.com/*", "https://*.vip.com/*", "http://*.vipshop.com/*", "https://*.vipshop.com/*", "http://*.tmall.hk/*", "https://*.tmall.hk/*", "http://*.yao.95095.com/*", "https://*.yao.95095.com/*" ],
       "run_at": "document_end"
    } ],
    "description": "Extension Order China 24h",
