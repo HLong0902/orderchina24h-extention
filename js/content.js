@@ -1,8 +1,7 @@
 // ==UserScript==
-var domainurlstatic = "https://giaodich.hangquangchau24h.vn/static/images/";
 var domainurl = "https://giaodich.hangquangchau24h.vn/extension/";
 var domain_addcart = "https://orderchina24h.vn/api/cart/add-cart";
-var urlrate = "https://hangquangchau24h.vn/api/rate.php";
+var urlrate = "https://orderchina24h.vn/api/information/config/TY_GIA";
 var beforeHtml = '';
 
 var urlParams = ({
@@ -3511,8 +3510,8 @@ if (host.indexOf('taobao') !== -1 || host.indexOf('tmall') !== -1 || host.indexO
 //alibaba
 if (host.indexOf('alibaba') !== -1 || host.indexOf('detail.1688.com') !== -1) {
     var curr = window.location.href;
-    if (curr.indexOf('.html?__NEWPC__') == -1 && curr.indexOf('.html&__NEWPC__') == -1) {
-        window.location.href = curr.substring(0, curr.indexOf("html") + 5) + '__NEWPC__=false';
+    if (curr.indexOf('.html?__NEWPC__') == -1 ) {
+        window.location.href = curr.substring(0, curr.indexOf("html") + 4) + '?__NEWPC__=false';
     }
     //console.info(host+'&__NEWPC__=false');
 
@@ -3531,7 +3530,7 @@ if (host.indexOf('vip') !== -1 || host.indexOf('vipshop') !== -1) {
     ex = new vipshop(url, url_save);
 }
 
-console.log("ex", ex);
 if (ex !== null) {
+    console.log("ex", ex);
     ex.htmlOnLoad();
 }

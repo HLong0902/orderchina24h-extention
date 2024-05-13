@@ -9,22 +9,23 @@
    "content_scripts": [ {
       "all_frames": true,
       "js": [ "js/jquery.js", "js/content.js" ],
-      "matches": [ "http://*.1688.com/*", "https://*.1688.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "http://*.vip.com/*", "https://*.vip.com/*", "http://*.vipshop.com/*", "https://*.vipshop.com/*", "http://*.tmall.hk/*", "https://*.tmall.hk/*", "http://*.yao.95095.com/*", "https://*.yao.95095.com/*" ],
+      "matches": [ "http://*.1688.com/*", "https://*.1688.com/*", "https://*.1688.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "http://*.vip.com/*", "https://*.vip.com/*", "http://*.vipshop.com/*", "https://*.vipshop.com/*", "http://*.tmall.hk/*", "https://*.tmall.hk/*", "http://*.yao.95095.com/*", "https://*.yao.95095.com/*" ],
       "run_at": "document_end"
    } ],
    "description": "Extension Order China 24h",
-   "permissions": ["cookies"],
-   "host_permissions": ["https://orderchina24h.vn/*" ,"http://orderchina24h.vn/*", "https://*.hangquangchau24h.vn/*", "http://localhost/*", "*://*.google.com/*", "http://*.1688.com/*", "https://*.1688.com/*", "https://*.1688.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "http://*.tmall.hk/*", "https://*.tmall.hk/*", "http://*.vip.com/*", "https://*.vip.com/*", "http://*.vipshop.com/*", "https://*.vipshop.com/*" ],
+   "host_permissions": [ "https://orderchina24h.vn/*", "http://orderchina24h.vn/*", "https://*.hangquangchau24h.vn/*", "http://localhost/*", "*://*.google.com/*", "http://*.1688.com/*", "https://*.1688.com/*", "https://*.1688.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "http://*.tmall.hk/*", "https://*.tmall.hk/*", "http://*.vip.com/*", "https://*.vip.com/*", "http://*.vipshop.com/*", "https://*.vipshop.com/*" ],
    "icons": {
       "512": "icons/icon.png"
    },
-   "web_accessible_resources": [{
-      "resources": ["images/*"],
-      "matches": [ "http://*.1688.com/*", "https://*.1688.com/*", "https://*.1688.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "http://*.vip.com/*", "https://*.vip.com/*", "http://*.vipshop.com/*", "https://*.vipshop.com/*", "http://*.tmall.hk/*", "https://*.tmall.hk/*", "http://*.yao.95095.com/*", "https://*.yao.95095.com/*" ]
-   }],
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk6gGFyO4fmUBcydIPckNT4F+ZwLeV0k7psVPpRLWv7YdDN3l8M9GibolafvnIuSWnsN/IlVWR3TgW6XS1BiMd+qLcrFnhDICez4Jr6jA7j03WYyBYEk+EX2Zl6GG8HGvLJ6DEzqMBhRtLGRV5RqKRgmv5fWidoYMbPP6UVCUioidSkaLrWZjHlK/EOk5rNffjjFDxF0jdOdeGeJZM5iqKCJseCPsaHUFHeFd1YC9F/JYFc7eiIx0TQ0qzSu3AhdP41gF2QSswN2lBmIdkFoIwLV9gmcJAXaNG75BfOLQpbuoB7Fm06buN3PzHgFMm8/DHZ8fcNX4d+u6aNMHrVcGkwIDAQAB",
    "manifest_version": 3,
    "name": "Extension Order China 24h",
+   "permissions": [ "cookies" ],
    "short_name": "OrderChina24h",
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.0.0"
+   "version": "1.1.0",
+   "web_accessible_resources": [ {
+      "matches": [ "http://*.1688.com/*", "https://*.1688.com/*", "https://*.1688.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "http://*.vip.com/*", "https://*.vip.com/*", "http://*.vipshop.com/*", "https://*.vipshop.com/*", "http://*.tmall.hk/*", "https://*.tmall.hk/*", "http://*.yao.95095.com/*", "https://*.yao.95095.com/*" ],
+      "resources": [ "images/*" ]
+   } ]
 }
