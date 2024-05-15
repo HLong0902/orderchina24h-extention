@@ -1073,7 +1073,7 @@ function taobao(cart_url, url_save) {
         //console.log(data_value);
         var outer_id = getOuterId(item_id + data_value);
 
-        var params = 'type=taobao';
+        var params = 'type=Taobao';
         if (parseInt(item_id) > 0)
             params += '&item_id=' + item_id;
 
@@ -3315,7 +3315,7 @@ function vipshop(cart_url, url_save) {
 
         var outer_id = getOuterId();
 
-        var params = 'type=tmall';
+        var params = 'type=TMall';
 
         if (parseInt(item_id) > 0)
             params += '&item_id=' + item_id;
