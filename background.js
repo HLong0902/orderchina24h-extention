@@ -1,7 +1,7 @@
 var Background = function () {
 
     this.request_server = async function (request, sender, sendResponse) {
-        let cookies = await chrome.cookies.getAll({ url: "http://orderchina24h.vn"});
+        let cookies = await chrome.cookies.getAll({ url: "https://orderchina24h.vn"});
         let token = '';
 
         cookies.some(function (cookie) {
