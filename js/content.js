@@ -732,6 +732,10 @@ function taobao(cart_url,url_save) {
       if(document.getElementsByClassName("tb-tit").length>0)
         tb=document.getElementsByClassName("tb-tit")[0].textContent;
 
+      if (tb === '' && document.querySelector('[class^="ItemTitle-"]') != null) {
+          tb = document.querySelector('[class^="ItemTitle-"]').getElementsByTagName('h1')[0].innerText;
+      }
+
       //new tmall ui 2022
       if(tb == ""){
         var h1Element = document.querySelectorAll('h1');
@@ -1296,8 +1300,12 @@ function taobao(cart_url,url_save) {
       if(img.length>0)
         params+='&item_image='+img;
 
-      if(seller_name.length>0)
-        params+='&seller_name='+seller_name;
+      if(seller_name.length>0) {
+          params+='&seller_name='+seller_name;
+      } else {
+          seller_name = document.querySelector('[class^="ShopHeader--shopName"]').getElementsByTagName('span')[0].innerText;
+          params+='&seller_name='+seller_name;
+      }
 
       if(parseInt(seller_id)>0)
         params+='&seller_id='+seller_id;
@@ -3150,7 +3158,10 @@ function alibaba(cart_url,url_save) {
         if(seller_name.length>0)
         {
             params+='&seller_name='+seller_name;
-        }            
+        } else {
+            seller_name = document.querySelector('meta[property="og:product:nick"]').content.split(';')[0].split('=')[1];
+            params+='&seller_name='+seller_name;
+        }
         if(parseInt(quantity)>0)
             params+='&item_quantity='+quantity;
               
