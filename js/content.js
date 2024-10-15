@@ -660,6 +660,12 @@ function taobao(cart_url,url_save) {
                 }
             }
         }
+        if (price === 0) {
+            try {
+                price = document.querySelectorAll('[class*="priceText-"]')[0].innerText;
+                price = processPrice(price);
+            } catch (e) {}
+        }
         return price;
     }
 
@@ -732,8 +738,8 @@ function taobao(cart_url,url_save) {
       if(document.getElementsByClassName("tb-tit").length>0)
         tb=document.getElementsByClassName("tb-tit")[0].textContent;
 
-      if (tb === '' && document.querySelector('[class^="ItemTitle-"]') != null) {
-          tb = document.querySelector('[class^="ItemTitle-"]').getElementsByTagName('h1')[0].innerText;
+      if (tb === '' && document.querySelectorAll('[class*="ItemTitle-"]')[1] != null) {
+          tb = document.querySelectorAll('[class*="ItemTitle-"]')[1].getElementsByTagName('h1')[0].innerText;
       }
 
       //new tmall ui 2022
@@ -837,6 +843,11 @@ function taobao(cart_url,url_save) {
           var img_src=null;
 
         }
+      }
+      if (img_src == null || img_src === '') {
+          try {
+              img_src = document.querySelectorAll('[class*="mainPic-"]')[0].src;
+          } catch (e) {}
       }
 
       return encodeURIComponent(img_src);
@@ -1162,6 +1173,12 @@ function taobao(cart_url,url_save) {
         quantity = document.querySelectorAll("input[class^='Operation--countValue'], input[class*='Operation--countValue']")[0].value;
       }
       else quantity = '';
+
+      if (quantity === 0 || quantity === ''){
+          try {
+              quantity = document.querySelectorAll('[class*="countValue-"]')[0].value;
+          } catch (e) {}
+      }
       //lay title
       var title=getTitle();
       //lay img
@@ -1227,7 +1244,7 @@ function taobao(cart_url,url_save) {
             }
             else{
               prop_str=p_e.textContent;
-              if(color_size=='')
+              if(color_size==='')
                 color_size+=encodeURIComponent(prop_str);
               else
                 color_size+=';'+encodeURIComponent(prop_str);
@@ -1235,6 +1252,17 @@ function taobao(cart_url,url_save) {
 
           }else continue;
         }
+      } else {
+          selected_props = document.querySelectorAll('[class*="valueItem-"][class*="isSelected"]');
+          if(selected_props.length>0)
+          {
+              selected_props.forEach( $ => {
+                  if(color_size==='')
+                      color_size+=encodeURIComponent($.innerText);
+                  else
+                      color_size+=';'+encodeURIComponent($.innerText);
+              })
+          }
       }
       //new UI tmall 2022
       if(document.querySelectorAll('.selectSkuText').length > 0){
@@ -1280,6 +1308,11 @@ function taobao(cart_url,url_save) {
           }
         }
       }
+      if (color_size === '') {
+          try {
+              color_size = document.querySelectorAll('[class*="valueItem-"][class*="isSelected"]')[0];
+          } catch (e) {}
+      }
       //console.log(data_value);
       var outer_id=getOuterId(item_id+data_value);
 
@@ -1303,7 +1336,7 @@ function taobao(cart_url,url_save) {
       if(seller_name.length>0) {
           params+='&seller_name='+seller_name;
       } else {
-          seller_name = document.querySelector('[class^="ShopHeader--shopName"]').getElementsByTagName('span')[0].innerText;
+          seller_name = document.querySelectorAll('[class*="shopNameLevelWrapper"]')[0].getElementsByTagName("span")[0].innerText;
           params+='&seller_name='+seller_name;
       }
 
@@ -1488,16 +1521,7 @@ function taobao(cart_url,url_save) {
         document.getElementById("id_nhaphang_add_cart").setAttribute('href','javascript:void(0);');
         return ;
       }
-      if(document.getElementsByClassName('mui-amount-input').length==0 && document.getElementsByClassName('countValueForPC').length==0 && (document.getElementById("J_IptAmount")==null || document.getElementById("J_IptAmount")=='undefined'))
-      {
-        if(document.querySelectorAll("div[class^='Operation--countValue'], div[class*='Operation--countValue']").length == 0){
 
-          document.getElementById("id_nhaphang_add_cart").setAttribute('target',"");
-          alert("Hết hàng!");
-          document.getElementById("id_nhaphang_add_cart").setAttribute('href','javascript:void(0);');
-          return ;
-        }
-      }
       //document.getElementById("id_nhaphang_add_cart").setAttribute('href',href);
       document.getElementById("id_nhaphang_add_cart").setAttribute('href','javascript:void(0)');
       document.getElementById("id_nhaphang_add_cart").setAttribute('target',"");
@@ -1619,11 +1643,14 @@ function taobao(cart_url,url_save) {
                     
                     var div = document.createElement('div');
                     div.innerHTML = s;
+                    con.innerHTML = p;
                     try{
-                        con.innerHTML = p;
                         document.getElementsByClassName('tb-btn-add')[0].parentNode.innerHTML= s;
                     }catch(e){
                     }
+                    try {
+                        document.querySelectorAll('[class*="LeftButtonList-"]')[0].innerHTML = s;
+                    } catch (e) {}
                     try{
                         con.innerHTML = p;
                         document.getElementsByClassName('item-buy-btn')[0].parentNode.innerHTML= s; 
@@ -1650,6 +1677,9 @@ function taobao(cart_url,url_save) {
                         con.innerHTML = p;   
                     }catch(e){
                     }
+                    try {
+                        document.querySelectorAll('[class*="LeftButtonList-"]')[0].innerHTML = s;
+                    } catch (e) {}
                 }
                 checkUrl();
                 getDataSearch();
