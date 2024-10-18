@@ -3,7 +3,8 @@ var domainurl="https://giaodich.hangquangchau24h.vn/extension/";
 var domain_addcart = "https://orderchina24h.vn/api/cart/add-cart";
 var urlrate = "https://orderchina24h.vn/api/information/config/TY_GIA";
 var beforeHtml = '';
-
+var tyGia = 1;
+var currentPrice = 0;
 var urlParams = ({
     getUrlVars: function (url) {
         var vars = [], hash;
@@ -38,7 +39,7 @@ function renderbox(price_result)
 	var s = '<div>'+
 		'<dl class="clearfix" id="gia-tinphat" style="font-size: 16px;margin: 10px;max-width: 500px;border-width: 3px;border-style: solid;border-color: #ff7300;border-image: initial;overflow: hidden;background: rgba(199, 146, 46, 0.208);">'+
 		'<h5 class="tool_title" style="text-align: center;color: rgb(255, 255, 255);text-transform: uppercase;font-family: Arial;font-size: 20px;font-weight: 400;background: #ff7300;padding: 4px 0px 7px;margin: 0px 0px 7px;">Order China 24h Order Tool</h5>'+
-		'<div class="taobaovn-info-inner" style="padding: 0px 10px 10px;overflow: hidden;"><img src="https://orderchina24h.vn/logo.png" alt="Order China 24h" style="width: 160px;float: left;margin: 8px 15px 0px 0px;"><ul style="float: left;padding: 0px;"><li style="font-size: 14px;font-family: Arial;color: rgb(0, 0, 0);margin-left: 0px !important;list-style: none !important;">Giá bán: <b class="taobaovn-rate taobaovn-color-price" style="color: rgb(211, 26, 26);font-weight: bold;font-size: 18px;">'+(price_result)+'</b> VNĐ '+
+		'<div class="taobaovn-info-inner" style="padding: 0px 10px 10px;overflow: hidden;"><img src="https://orderchina24h.vn/logo.png" alt="Order China 24h" style="width: 160px;float: left;margin: 8px 15px 0px 0px;"><ul style="float: left;padding: 0px;"><li style="font-size: 14px;font-family: Arial;color: rgb(0, 0, 0);margin-left: 0px !important;list-style: none !important;">Giá bán: <b id="idGiaBan" class="taobaovn-rate taobaovn-color-price" style="color: rgb(211, 26, 26);font-weight: bold;font-size: 18px;">'+(price_result)+'</b> VNĐ '+
 		'<span class="taobaovn-cny" style="font-weight: bold;color: #357ae8;font-size: 16px;"></span></li><li style="font-size: 14px;font-family: Arial;color: rgb(0, 0, 0);margin-left: 0px !important;list-style: none !important;">Tỷ giá: <span class="taobaovn-color-price" style="color: rgb(211, 26, 26);font-weight: bold;">'+rateMoney().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'</span> VNĐ/tệ</li>'+
 		'<li style="font-size: 14px;font-family: Arial;color: rgb(0, 0, 0);margin-left: 0px !important;list-style: none !important;"></li></ul><div class="taobaovn-info-warning" style="float: left;font-size: 13px;color: rgb(0, 0, 0);text-align: left;width: 100%;font-family: Arial;margin: 10px 0px 0px;padding: 5px 0px;">(!!) Vui lòng chọn đầy đủ thông tin sản phẩm ở bên dưới để xem giá chuẩn.</div></div>' +
 		'<div class="taobaovn_note" style="float: left;width: 100%;text-align: center;display: table-cell;border-top: 3px solid #ff7300;padding: 10px 0px;outline: none;">'+com_text+'<p class="google_translate" style="text-align: center;font-size: 15px !important;color: rgb(0, 0, 0) !important;margin: 10px 0px 0px !important;padding: 0px 0px 0px 20px !important;">Lưu ý : <strong style="color: rgb(218, 37, 28) !important;"> không dùng Google Translate</strong> khi thêm sản phẩm!</p></div>'+
@@ -319,8 +320,10 @@ function httpGet(theUrl)
 }
 function rateMoney()
 {
-	var ratemn = httpGet(urlrate);
-    return ratemn;
+    if (tyGia === 1) {
+        tyGia = httpGet(urlrate);
+    }
+    return tyGia;
 }        
 function getHostname() {
     var url = window.location.href;  
@@ -1567,6 +1570,18 @@ function taobao(cart_url,url_save) {
         xmlhttpPost(url_save);
     }
     $(document).ready(function () {
+        setInterval(function() {
+            let newPrice = document.querySelectorAll('[class*="displayPrice-"]')[0]
+                .querySelectorAll('[class*="highlightPrice-"]')[0]
+                .querySelectorAll('[class*="text-"]')[0].innerText;
+            if (currentPrice !== newPrice) {
+                currentPrice = newPrice;
+                document.getElementById('idGiaBan').innerText = (currentPrice * rateMoney()).toLocaleString('vi-VN');;
+            }
+        }, 1000);
+        setTimeout(function () {
+            document.querySelectorAll('[class*="footWrap-"]')[0].style.position = 'relative';
+        }, 5000)
       $(document).on('click','.skuWrapper',function(){
         if(typeof $('.taobaovn-color-price').html()==='undefined'){
           var price_taobao = getPriceTaobao();
@@ -3289,6 +3304,15 @@ function alibaba(cart_url,url_save) {
             return true;
         } else return false;
     }
+
+    setInterval(function() {
+        let newPrice = document.querySelectorAll('[class*="list-total"]')[0].getElementsByClassName('value')[1].innerText;
+        if (currentPrice !== newPrice && newPrice !== '0.00') {
+            currentPrice = newPrice;
+            document.getElementById('idGiaBan').innerText =(currentPrice * rateMoney()).toLocaleString('vi-VN');
+        }
+    }, 1000);
+
     if(document.getElementsByClassName('obj-order').length > 0)
 	{
 		this.htmlOnLoad = function()
